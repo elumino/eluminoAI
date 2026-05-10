@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>eLumino | Camera-Free Care Monitoring</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-lowest": "#ffffff",
+                      "on-primary": "#ffffff",
+                      "surface": "#f1fbff",
+                      "tertiary": "#575b5b",
+                      "on-tertiary-fixed-variant": "#444748",
+                      "on-background": "#131d21",
+                      "surface-variant": "#d9e4e9",
+                      "on-primary-fixed": "#002020",
+                      "secondary-container": "#dae1e3",
+                      "tertiary-container": "#707373",
+                      "inverse-on-surface": "#e7f3f7",
+                      "on-secondary-fixed-variant": "#41484a",
+                      "on-surface": "#131d21",
+                      "on-secondary": "#ffffff",
+                      "secondary-fixed-dim": "#c1c8ca",
+                      "on-primary-fixed-variant": "#004f4f",
+                      "on-primary-container": "#e3fffe",
+                      "on-tertiary-container": "#f7f9f9",
+                      "outline-variant": "#bdc9c8",
+                      "on-secondary-container": "#5d6466",
+                      "primary-fixed-dim": "#76d6d5",
+                      "on-error-container": "#93000a",
+                      "error-container": "#ffdad6",
+                      "tertiary-fixed-dim": "#c4c7c7",
+                      "on-error": "#ffffff",
+                      "error": "#ba1a1a",
+                      "background": "#f1fbff",
+                      "primary": "#006565",
+                      "primary-fixed": "#93f2f2",
+                      "secondary": "#586062",
+                      "secondary-fixed": "#dde4e6",
+                      "on-secondary-fixed": "#161d1f",
+                      "surface-container-high": "#dfeaef",
+                      "surface-container-highest": "#d9e4e9",
+                      "on-surface-variant": "#3e4949",
+                      "on-tertiary-fixed": "#191c1d",
+                      "surface-tint": "#006a6a",
+                      "primary-container": "#008080",
+                      "surface-dim": "#d1dce0",
+                      "inverse-surface": "#283236",
+                      "surface-container": "#e4f0f4",
+                      "tertiary-fixed": "#e1e3e3",
+                      "inverse-primary": "#76d6d5",
+                      "outline": "#6e7979",
+                      "surface-container-low": "#eaf5fa",
+                      "surface-bright": "#f1fbff",
+                      "on-tertiary": "#ffffff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "stack-sm": "12px",
+                      "stack-md": "24px",
+                      "stack-lg": "48px",
+                      "container-margin-dt": "40px",
+                      "container-margin-mb": "20px",
+                      "base": "8px",
+                      "gutter": "24px"
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+            <meta charset="utf-8"/>
+            <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+            <title>eLumino | Camera-Free Care Monitoring</title>
+            <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+            <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+            <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+            <script id="tailwind-config">
+                tailwind.config = {
+                    theme: {
+                        extend: {
+                            colors: {
+                                ink: '#08151b',
+                                mist: '#eff7f8',
+                                panel: '#ffffff',
+                                panelSoft: '#f7fbfc',
+                                line: '#d8e6e8',
+                                teal: {
+                                    50: '#effdfa',
+                                    100: '#d6f8f3',
+                                    200: '#a8ece2',
+                                    300: '#72dccf',
+                                    400: '#3bc2b2',
+                                    500: '#159d92',
+                                    600: '#0f7f77',
+                                    700: '#0f6660',
+                                    800: '#114f4c',
+                                    900: '#0e3d3b'
+                                }
+                            },
+                            fontFamily: {
+                                display: ['Space Grotesk', 'sans-serif'],
+                                body: ['Inter', 'sans-serif']
+                            },
+                            boxShadow: {
+                                glow: '0 20px 70px rgba(15, 127, 119, 0.16)',
+                                card: '0 16px 45px rgba(8, 21, 27, 0.08)'
+                            },
+                            borderRadius: {
+                                '2xl': '1.5rem',
+                                '3xl': '2rem'
+                            }
+                        }
+                    }
+                }
+            </script>
+            <style>
+                :root { color-scheme: light; }
+                html { scroll-behavior: smooth; }
+                body {
+                    background:
+                        radial-gradient(circle at top left, rgba(21, 157, 146, 0.14), transparent 28%),
+                        radial-gradient(circle at 90% 10%, rgba(59, 194, 178, 0.12), transparent 22%),
+                        linear-gradient(180deg, #f8fcfd 0%, #eff7f8 45%, #f6fbfc 100%);
+                    color: #08151b;
+                }
+                .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+                .grid-noise {
+                    background-image: linear-gradient(rgba(8, 21, 27, 0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(8, 21, 27, 0.02) 1px, transparent 1px);
+                    background-size: 44px 44px;
+                }
+                .glass { background: rgba(255, 255, 255, 0.72); backdrop-filter: blur(18px); }
+                .reveal { opacity: 0; transform: translateY(22px); transition: opacity 700ms ease, transform 700ms ease; }
+                .reveal.is-visible { opacity: 1; transform: translateY(0); }
+                .float-slow { animation: float 8s ease-in-out infinite; }
+                .float-slower { animation: float 11s ease-in-out infinite reverse; }
+                .pulse-ring { animation: pulseRing 2.8s ease-in-out infinite; }
+                .stagger > * { transition-delay: var(--delay, 0ms); }
+                @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-12px); } }
+                @keyframes pulseRing { 0%, 100% { box-shadow: 0 0 0 0 rgba(15, 127, 119, 0.22); } 50% { box-shadow: 0 0 0 18px rgba(15, 127, 119, 0); } }
+                @media (prefers-reduced-motion: reduce) {
+                    html { scroll-behavior: auto; }
+                    *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+                    .reveal { opacity: 1; transform: none; }
+                }
+            </style>
+            </head>
+            <body class="font-body text-slate-900">
+            <div aria-hidden="true" class="fixed inset-0 pointer-events-none overflow-hidden">
+                <div class="absolute -top-24 -left-24 h-72 w-72 rounded-full bg-teal-200/40 blur-3xl float-slower"></div>
+                <div class="absolute top-20 right-[-4rem] h-80 w-80 rounded-full bg-cyan-200/30 blur-3xl float-slow"></div>
+                <div class="absolute inset-x-0 top-0 h-24 grid-noise opacity-60"></div>
+            </div>
+
+            <header class="fixed top-0 z-50 w-full border-b border-white/60 bg-white/70 backdrop-blur-xl">
+                <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4 sm:px-6 lg:px-8">
+                    <a class="flex items-center gap-3" href="#home">
+                        <span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-teal-700 text-white shadow-glow">
+                            <span class="material-symbols-outlined text-[22px]">radar</span>
+                        </span>
+                        <div>
+                            <div class="font-display text-xl font-bold tracking-tight text-ink">eLumino</div>
+                            <div class="text-xs font-medium uppercase tracking-[0.28em] text-slate-500">Care monitoring</div>
+                        </div>
+                    </a>
+                    <nav class="hidden items-center gap-8 md:flex">
+                        <a class="text-sm font-medium text-slate-600 transition-colors hover:text-teal-700" href="#how-it-works">How it Works</a>
+                        <a class="text-sm font-medium text-slate-600 transition-colors hover:text-teal-700" href="#features">Features</a>
+                        <a class="text-sm font-medium text-slate-600 transition-colors hover:text-teal-700" href="#design">Design</a>
+                        <a class="text-sm font-medium text-slate-600 transition-colors hover:text-teal-700" href="#roadmap">Roadmap</a>
+                    </nav>
+                    <div class="hidden md:block">
+                        <a class="inline-flex items-center gap-2 rounded-full bg-ink px-5 py-3 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5 hover:bg-teal-700" href="#cta">
+                            Request Demo
+                            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                        </a>
+                    </div>
+                    <button aria-expanded="false" aria-controls="mobile-menu" id="menu-toggle" class="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-slate-200 bg-white text-ink shadow-sm md:hidden" type="button">
+                        <span class="material-symbols-outlined text-[24px]">menu</span>
+                    </button>
+                </div>
+                <div class="hidden border-t border-slate-200 bg-white/95 md:hidden" id="mobile-menu">
+                    <div class="mx-auto flex max-w-7xl flex-col gap-2 px-5 py-4 sm:px-6">
+                        <a class="rounded-2xl px-4 py-3 text-sm font-medium text-slate-700 hover:bg-teal-50 hover:text-teal-800" href="#how-it-works">How it Works</a>
+                        <a class="rounded-2xl px-4 py-3 text-sm font-medium text-slate-700 hover:bg-teal-50 hover:text-teal-800" href="#features">Features</a>
+                        <a class="rounded-2xl px-4 py-3 text-sm font-medium text-slate-700 hover:bg-teal-50 hover:text-teal-800" href="#design">Design</a>
+                        <a class="rounded-2xl px-4 py-3 text-sm font-medium text-slate-700 hover:bg-teal-50 hover:text-teal-800" href="#roadmap">Roadmap</a>
+                        <a class="mt-2 inline-flex items-center justify-center rounded-full bg-ink px-5 py-3 text-sm font-semibold text-white" href="#cta">Request Demo</a>
+                    </div>
+                </div>
+            </header>
+
+            <main id="home" class="pt-28 sm:pt-32">
+                <section class="mx-auto max-w-7xl px-5 pb-16 sm:px-6 lg:px-8 lg:pb-24">
+                    <div class="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
+                        <div class="reveal space-y-8">
+                            <div class="flex flex-wrap gap-3">
+                                <span class="inline-flex items-center gap-2 rounded-full border border-teal-100 bg-white/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-teal-800 shadow-sm">
+                                    <span class="material-symbols-outlined text-[16px]">visibility_off</span> Camera-free
+                                </span>
+                                <span class="inline-flex items-center gap-2 rounded-full border border-teal-100 bg-white/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-teal-800 shadow-sm">
+                                    <span class="material-symbols-outlined text-[16px]">contactless</span> Contactless
+                                </span>
+                                <span class="inline-flex items-center gap-2 rounded-full border border-teal-100 bg-white/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-teal-800 shadow-sm">
+                                    <span class="material-symbols-outlined text-[16px]">medical_services</span> Medical-grade
+                                </span>
+                            </div>
+                            <div class="space-y-5">
+                                <h1 class="font-display text-5xl font-bold tracking-tight text-ink sm:text-6xl xl:text-7xl">Camera-free care monitoring for safer independent living.</h1>
+                                <p class="max-w-2xl text-lg leading-8 text-slate-600 sm:text-xl">Privacy-preserving 60 GHz radar intelligence that detects falls, breathing, and motion without cameras or wearables.</p>
+                            </div>
+                            <div class="flex flex-col gap-4 sm:flex-row">
+                                <a class="inline-flex items-center justify-center gap-2 rounded-full bg-teal-700 px-7 py-4 text-sm font-semibold text-white shadow-glow transition-transform hover:-translate-y-0.5 hover:bg-teal-800" href="#cta">
+                                    Request a Demo
+                                    <span class="material-symbols-outlined text-[18px]">north_east</span>
+                                </a>
+                                <a class="inline-flex items-center justify-center gap-2 rounded-full border border-slate-200 bg-white px-7 py-4 text-sm font-semibold text-ink shadow-sm transition-transform hover:-translate-y-0.5 hover:border-teal-200 hover:bg-teal-50" href="#how-it-works">
+                                    <span class="material-symbols-outlined text-[18px]">play_circle</span>
+                                    See how it works
+                                </a>
+                            </div>
+                            <div class="grid max-w-2xl gap-4 sm:grid-cols-3">
+                                <div class="reveal rounded-3xl border border-white/70 bg-white/80 p-5 shadow-sm backdrop-blur stagger" style="--delay: 80ms;">
+                                    <div class="text-3xl font-bold tracking-tight text-ink">99%</div>
+                                    <div class="mt-1 text-sm text-slate-600">Detection accuracy target</div>
+                                </div>
+                                <div class="reveal rounded-3xl border border-white/70 bg-white/80 p-5 shadow-sm backdrop-blur stagger" style="--delay: 160ms;">
+                                    <div class="text-3xl font-bold tracking-tight text-ink">0</div>
+                                    <div class="mt-1 text-sm text-slate-600">Cameras or wearables</div>
+                                </div>
+                                <div class="reveal rounded-3xl border border-white/70 bg-white/80 p-5 shadow-sm backdrop-blur stagger" style="--delay: 240ms;">
+                                    <div class="text-3xl font-bold tracking-tight text-ink">24/7</div>
+                                    <div class="mt-1 text-sm text-slate-600">Ambient monitoring</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="reveal relative lg:pl-8">
+                            <div class="relative mx-auto aspect-square max-w-[620px] rounded-[2rem] border border-white/80 bg-white/70 p-4 shadow-card backdrop-blur-xl">
+                                <div class="absolute -left-4 top-10 hidden rounded-2xl border border-white/70 bg-white/90 px-4 py-3 shadow-sm lg:block">
+                                    <div class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">Live status</div>
+                                    <div class="mt-1 flex items-center gap-2 text-sm font-semibold text-ink"><span class="h-2.5 w-2.5 rounded-full bg-emerald-500 pulse-ring"></span> Care room connected</div>
+                                </div>
+                                <div class="absolute -right-4 bottom-10 hidden rounded-2xl border border-white/70 bg-white/90 px-4 py-3 shadow-sm lg:block">
+                                    <div class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">Signal</div>
+                                    <div class="mt-1 text-sm font-semibold text-ink">Radar + thermal fusion</div>
+                                </div>
+                                <div class="relative flex h-full w-full items-center justify-center overflow-hidden rounded-[1.75rem] bg-gradient-to-br from-ink via-slate-900 to-teal-950">
+                                    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,194,178,0.28),transparent_36%)]"></div>
+                                    <div class="absolute left-1/2 top-1/2 h-80 w-80 -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/10"></div>
+                                    <div class="absolute left-1/2 top-1/2 h-56 w-56 -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/15"></div>
+                                    <div class="absolute left-1/2 top-1/2 h-36 w-36 -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/20"></div>
+                                    <div class="relative z-10 w-[76%] max-w-md rounded-[2rem] border border-white/10 bg-white/10 p-8 shadow-2xl backdrop-blur-xl">
+                                        <div class="flex items-center justify-between text-white/80"><span class="text-xs font-semibold uppercase tracking-[0.28em]">eLumino Core</span><span class="rounded-full bg-white/10 px-3 py-1 text-xs font-semibold">Active</span></div>
+                                        <div class="mt-10 grid place-items-center"><div class="relative flex h-44 w-44 items-center justify-center rounded-[2rem] border border-white/15 bg-white/10 shadow-xl"><div class="absolute inset-8 rounded-full border border-white/15"></div><div class="absolute inset-14 rounded-full border border-white/20"></div><div class="h-5 w-5 rounded-full bg-white shadow-[0_0_28px_rgba(255,255,255,0.7)]"></div></div></div>
+                                        <div class="mt-10 flex items-end justify-between gap-4 text-white"><div><div class="text-sm text-white/70">Device health</div><div class="mt-1 text-2xl font-bold">Stable</div></div><div class="text-right"><div class="text-sm text-white/70">Latency</div><div class="mt-1 text-2xl font-bold">&lt; 1s</div></div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="border-y border-white/70 bg-white/55 py-5 backdrop-blur-sm">
+                    <div class="mx-auto grid max-w-7xl grid-cols-2 gap-4 px-5 text-center sm:grid-cols-4 sm:px-6 lg:px-8">
+                        <div class="text-sm font-medium text-slate-600">Fall detection</div>
+                        <div class="text-sm font-medium text-slate-600">Bed-exit alerts</div>
+                        <div class="text-sm font-medium text-slate-600">Breathing monitoring</div>
+                        <div class="text-sm font-medium text-slate-600">Encrypted connectivity</div>
+                    </div>
+                </section>
+
+                <section id="how-it-works" class="mx-auto max-w-7xl px-5 py-20 sm:px-6 lg:px-8 lg:py-28">
+                    <div class="reveal mx-auto max-w-2xl text-center">
+                        <div class="mb-4 inline-flex rounded-full border border-teal-100 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-teal-700 shadow-sm">How it works</div>
+                        <h2 class="font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl">Intelligent sensing, privacy by design.</h2>
+                        <p class="mt-4 text-base leading-7 text-slate-600 sm:text-lg">A quiet chain of sensing, fusion, and alerts that blends into the room instead of dominating it.</p>
+                    </div>
+                    <div class="stagger mt-14 grid gap-6 md:grid-cols-4">
+                        <div class="reveal rounded-[2rem] border border-white/70 bg-white/80 p-7 shadow-card" style="--delay: 0ms;">
+                            <div class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-teal-50 text-teal-700"><span class="material-symbols-outlined">radar</span></div>
+                            <h3 class="mt-5 font-display text-xl font-semibold text-ink">Sense</h3>
+                            <p class="mt-3 text-sm leading-7 text-slate-600">High-frequency radar waves sweep the room silently and discreetly.</p>
+                        </div>
+                        <div class="reveal rounded-[2rem] border border-white/70 bg-white/80 p-7 shadow-card" style="--delay: 100ms;">
+                            <div class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-teal-50 text-teal-700"><span class="material-symbols-outlined">hub</span></div>
+                            <h3 class="mt-5 font-display text-xl font-semibold text-ink">Fuse</h3>
+                            <p class="mt-3 text-sm leading-7 text-slate-600">Radar and thermal inputs combine into a reliable local signal pipeline.</p>
+                        </div>
+                        <div class="reveal rounded-[2rem] border border-white/70 bg-white/80 p-7 shadow-card" style="--delay: 200ms;">
+                            <div class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-teal-50 text-teal-700"><span class="material-symbols-outlined">psychology</span></div>
+                            <h3 class="mt-5 font-display text-xl font-semibold text-ink">Detect</h3>
+                            <p class="mt-3 text-sm leading-7 text-slate-600">Embedded AI identifies falls, bed exits, and motion changes in milliseconds.</p>
+                        </div>
+                        <div class="reveal rounded-[2rem] border border-white/70 bg-white/80 p-7 shadow-card" style="--delay: 300ms;">
+                            <div class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-teal-50 text-teal-700"><span class="material-symbols-outlined">notification_important</span></div>
+                            <h3 class="mt-5 font-display text-xl font-semibold text-ink">Alert</h3>
+                            <p class="mt-3 text-sm leading-7 text-slate-600">Real-time notifications reach caregivers through the mobile app instantly.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="features" class="mx-auto max-w-7xl px-5 py-20 sm:px-6 lg:px-8 lg:py-28">
+                    <div class="reveal text-center">
+                        <div class="mb-4 inline-flex rounded-full border border-teal-100 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-teal-700 shadow-sm">Features</div>
+                        <h2 class="font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl">Complete peace of mind.</h2>
+                        <p class="mx-auto mt-4 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg">Designed for clinical reliability in home settings without making the room feel clinical.</p>
+                    </div>
+                    <div class="stagger mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+                        <article class="reveal rounded-[2rem] border border-white/70 bg-white/85 p-8 shadow-card" style="--delay: 0ms;">
+                            <span class="material-symbols-outlined text-3xl text-teal-700">falling</span>
+                            <h3 class="mt-5 font-display text-2xl font-semibold text-ink">Fall Detection</h3>
+                            <p class="mt-3 text-sm leading-7 text-slate-600">Precise vertical tracking detects rapid elevation changes even in low light.</p>
+                        </article>
+                        <article class="reveal rounded-[2rem] border border-white/70 bg-white/85 p-8 shadow-card" style="--delay: 80ms;">
+                            <span class="material-symbols-outlined text-3xl text-teal-700">bed</span>
+                            <h3 class="mt-5 font-display text-2xl font-semibold text-ink">Bed-Exit Alerts</h3>
+                            <p class="mt-3 text-sm leading-7 text-slate-600">Monitors transition timing to prevent night-time wandering and falls.</p>
+                        </article>
+                        <article class="reveal rounded-[2rem] border border-white/70 bg-white/85 p-8 shadow-card" style="--delay: 160ms;">
+                            <span class="material-symbols-outlined text-3xl text-teal-700">air</span>
+                            <h3 class="mt-5 font-display text-2xl font-semibold text-ink">Breathing Monitoring</h3>
+                            <p class="mt-3 text-sm leading-7 text-slate-600">Sub-millimeter radar detection of chest movements for heart and lung health.</p>
+                        </article>
+                        <article class="reveal rounded-[2rem] border border-white/70 bg-white/85 p-8 shadow-card" style="--delay: 240ms;">
+                            <span class="material-symbols-outlined text-3xl text-teal-700">thermostat</span>
+                            <h3 class="mt-5 font-display text-2xl font-semibold text-ink">Infrared Heat Sensing</h3>
+                            <p class="mt-3 text-sm leading-7 text-slate-600">Thermal array fusion adds a secondary layer of vital sign verification.</p>
+                        </article>
+                        <article class="reveal rounded-[2rem] border border-white/70 bg-white/85 p-8 shadow-card" style="--delay: 320ms;">
+                            <span class="material-symbols-outlined text-3xl text-teal-700">encrypted</span>
+                            <h3 class="mt-5 font-display text-2xl font-semibold text-ink">Secure Connectivity</h3>
+                            <p class="mt-3 text-sm leading-7 text-slate-600">End-to-end encrypted data transmission via local WiFi or 4G LTE backup.</p>
+                        </article>
+                        <article class="reveal rounded-[2rem] border border-white/70 bg-white/85 p-8 shadow-card" style="--delay: 400ms;">
+                            <span class="material-symbols-outlined text-3xl text-teal-700">dashboard_customize</span>
+                            <h3 class="mt-5 font-display text-2xl font-semibold text-ink">Dashboard + Alerts</h3>
+                            <p class="mt-3 text-sm leading-7 text-slate-600">A unified view for families and care teams to manage health trends.</p>
+                        </article>
+                    </div>
+                </section>
+
+                <section id="design" class="overflow-hidden py-20 sm:py-28">
+                    <div class="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+                        <div class="grid items-center gap-12 rounded-[2.5rem] border border-white/70 bg-white/75 p-6 shadow-card backdrop-blur-xl lg:grid-cols-2 lg:p-10">
+                            <div class="order-2 relative min-h-[420px] lg:order-1">
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <div class="relative flex h-[360px] w-[360px] items-center justify-center rounded-[2.25rem] border border-slate-200/70 bg-gradient-to-br from-ink via-slate-900 to-teal-950 shadow-2xl float-slow sm:h-[420px] sm:w-[420px]">
+                                        <div class="absolute inset-0 rounded-[2.25rem] bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.08),transparent_55%)]"></div>
+                                        <div class="absolute -left-5 top-10 rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-white/80 backdrop-blur-sm">Wall-mount ready</div>
+                                        <div class="absolute -right-10 top-1/2 rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-white/80 backdrop-blur-sm">Privacy-safe radar sensor</div>
+                                        <div class="absolute -bottom-6 right-8 rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-white/80 backdrop-blur-sm">USB-C power</div>
+                                        <div class="relative flex h-52 w-52 items-center justify-center rounded-[2rem] border border-white/15 bg-white/12 shadow-2xl backdrop-blur-xl sm:h-60 sm:w-60"><div class="absolute inset-10 rounded-full border border-white/15"></div><div class="absolute inset-16 rounded-full border border-white/15"></div><div class="h-6 w-6 rounded-full bg-white shadow-[0_0_24px_rgba(255,255,255,0.8)]"></div></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="order-1 space-y-6 lg:order-2">
+                                <div class="inline-flex rounded-full border border-teal-100 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-teal-700 shadow-sm">Design</div>
+                                <h2 class="font-display text-4xl font-bold tracking-tight text-ink sm:text-5xl">Technical but elegant.</h2>
+                                <p class="max-w-xl text-base leading-8 text-slate-600 sm:text-lg">We believe healthcare technology should blend into modern interiors while still delivering a serious sensing stack beneath the surface.</p>
+                                <ul class="space-y-4 pt-2 text-slate-700">
+                                    <li class="flex items-center gap-3 rounded-2xl bg-white/80 px-4 py-3 shadow-sm"><span class="material-symbols-outlined text-teal-700">check_circle</span> Matte anti-microbial finish</li>
+                                    <li class="flex items-center gap-3 rounded-2xl bg-white/80 px-4 py-3 shadow-sm"><span class="material-symbols-outlined text-teal-700">check_circle</span> Non-intrusive LED status rings</li>
+                                    <li class="flex items-center gap-3 rounded-2xl bg-white/80 px-4 py-3 shadow-sm"><span class="material-symbols-outlined text-teal-700">check_circle</span> Tool-free magnetic mounting</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="roadmap" class="mx-auto max-w-7xl px-5 py-20 sm:px-6 lg:px-8 lg:py-28">
+                    <div class="reveal text-center">
+                        <div class="mb-4 inline-flex rounded-full border border-teal-100 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-teal-700 shadow-sm">Roadmap</div>
+                        <h2 class="font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl">Future roadmap</h2>
+                        <p class="mt-4 text-base leading-7 text-slate-600 sm:text-lg">Our journey toward comprehensive care intelligence.</p>
+                    </div>
+                    <div class="relative mt-14">
+                        <div class="absolute left-0 top-8 hidden h-px w-full bg-gradient-to-r from-transparent via-teal-200 to-transparent md:block"></div>
+                        <div class="grid gap-6 md:grid-cols-3 md:gap-8">
+                            <article class="reveal relative rounded-[2rem] border border-teal-200/70 bg-white p-8 shadow-card" style="--delay: 0ms;">
+                                <div class="mb-4 inline-flex rounded-full bg-teal-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-teal-700">Current</div>
+                                <h3 class="font-display text-2xl font-semibold text-ink">eLumino Core</h3>
+                                <p class="mt-3 text-sm leading-7 text-slate-600">Single room fall detection and breathing monitoring for bedrooms and living areas.</p>
+                            </article>
+                            <article class="reveal relative rounded-[2rem] border border-slate-200/70 bg-white p-8 shadow-card" style="--delay: 120ms;">
+                                <div class="mb-4 inline-flex rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-slate-600">Next</div>
+                                <h3 class="font-display text-2xl font-semibold text-ink">eLumino Pro</h3>
+                                <p class="mt-3 text-sm leading-7 text-slate-600">Multi-room mesh networking allowing whole-home tracking without dead zones.</p>
+                            </article>
+                            <article class="reveal relative rounded-[2rem] border border-slate-200/70 bg-white p-8 shadow-card" style="--delay: 240ms;">
+                                <div class="mb-4 inline-flex rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-slate-600">Future</div>
+                                <h3 class="font-display text-2xl font-semibold text-ink">Care Intelligence Hub</h3>
+                                <p class="mt-3 text-sm leading-7 text-slate-600">Predictive health analytics that alert families to subtle changes in daily patterns.</p>
+                            </article>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="cta" class="mx-auto max-w-7xl px-5 pb-20 sm:px-6 lg:px-8 lg:pb-28">
+                    <div class="reveal overflow-hidden rounded-[2.5rem] border border-teal-100 bg-gradient-to-br from-teal-700 via-teal-800 to-ink p-8 text-white shadow-2xl sm:p-12 lg:p-16">
+                        <div class="grid items-center gap-8 lg:grid-cols-[1.1fr_0.9fr]">
+                            <div>
+                                <div class="inline-flex rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-white/80">Call to action</div>
+                                <h2 class="mt-5 font-display text-4xl font-bold tracking-tight sm:text-5xl">Ready for a safer future?</h2>
+                                <p class="mt-4 max-w-2xl text-base leading-8 text-white/80 sm:text-lg">Join the waitlist or schedule a personalized demonstration of our privacy-first monitoring technology.</p>
+                            </div>
+                            <div class="flex flex-col gap-4 sm:flex-row lg:justify-end">
+                                <a class="inline-flex items-center justify-center rounded-full bg-white px-6 py-4 text-sm font-semibold text-teal-800 transition-transform hover:-translate-y-0.5 hover:bg-teal-50" href="#">Request Demo</a>
+                                <a class="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-6 py-4 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5 hover:bg-white/15" href="#">Contact Sales</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <footer class="border-t border-white/70 bg-white/70 backdrop-blur-xl">
+                <div class="mx-auto grid max-w-7xl gap-10 px-5 py-14 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-8">
+                    <div class="space-y-4 max-w-md">
+                        <div class="font-display text-2xl font-bold tracking-tight text-ink">eLumino</div>
+                        <p class="text-sm leading-7 text-slate-600">Privacy-first room monitoring for modern elder care. eLumino.ca</p>
+                        <div class="flex gap-3 text-teal-700">
+                            <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-teal-50"><span class="material-symbols-outlined text-[20px]">mail</span></span>
+                            <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-teal-50"><span class="material-symbols-outlined text-[20px]">call</span></span>
+                            <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-teal-50"><span class="material-symbols-outlined text-[20px]">location_on</span></span>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-8 sm:gap-12">
+                        <div class="space-y-3">
+                            <h4 class="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">Product</h4>
+                            <ul class="space-y-2 text-sm text-slate-600">
+                                <li><a class="transition-colors hover:text-teal-700" href="#">Documentation</a></li>
+                                <li><a class="transition-colors hover:text-teal-700" href="#">Support</a></li>
+                                <li><a class="transition-colors hover:text-teal-700" href="#">Integrations</a></li>
+                            </ul>
+                        </div>
+                        <div class="space-y-3">
+                            <h4 class="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">Legal</h4>
+                            <ul class="space-y-2 text-sm text-slate-600">
+                                <li><a class="transition-colors hover:text-teal-700" href="#">Privacy Policy</a></li>
+                                <li><a class="transition-colors hover:text-teal-700" href="#">Terms of Service</a></li>
+                                <li><a class="transition-colors hover:text-teal-700" href="#">Contact Us</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="mx-auto max-w-7xl px-5 pb-10 sm:px-6 lg:px-8">
+                    <div class="border-t border-slate-200 pt-6 text-sm text-slate-500">© 2024 eLumino Medical Systems. All rights reserved.</div>
+                </div>
+            </footer>
+
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                    const menuToggle = document.getElementById('menu-toggle');
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (menuToggle && mobileMenu) {
+                        menuToggle.addEventListener('click', () => {
+                            const isOpen = !mobileMenu.classList.contains('hidden');
+                            mobileMenu.classList.toggle('hidden');
+                            menuToggle.setAttribute('aria-expanded', String(!isOpen));
+                            menuToggle.querySelector('.material-symbols-outlined').textContent = isOpen ? 'menu' : 'close';
+                        });
+                        mobileMenu.querySelectorAll('a').forEach((link) => {
+                            link.addEventListener('click', () => {
+                                mobileMenu.classList.add('hidden');
+                                menuToggle.setAttribute('aria-expanded', 'false');
+                                menuToggle.querySelector('.material-symbols-outlined').textContent = 'menu';
+                            });
+                        });
+                    }
+                    const revealItems = document.querySelectorAll('.reveal');
+                    if ('IntersectionObserver' in window) {
+                        const observer = new IntersectionObserver((entries) => {
+                            entries.forEach((entry) => {
+                                if (entry.isIntersecting) {
+                                    entry.target.classList.add('is-visible');
+                                    observer.unobserve(entry.target);
+                                }
+                            });
+                        }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
+                        revealItems.forEach((item) => observer.observe(item));
+                    } else {
+                        revealItems.forEach((item) => item.classList.add('is-visible'));
+                    }
+                });
+            </script>
+            </body>
+            </html>
