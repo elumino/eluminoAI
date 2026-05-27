@@ -1,496 +1,1161 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>eLumino | Privacy-First Elder Care Monitoring</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --t50:#f0fdfc;--t100:#ccfbf1;--t200:#99f6e4;--t300:#5eead4;
+  --t400:#2dd4bf;--t500:#14b8a6;--t600:#0d9488;--t700:#0f766e;
+  --t800:#115e59;--t900:#134e4a;--t950:#042f2e;
+  --ink:#0a1628;--ink2:#1e2d3d;--s400:#94a3b8;--s500:#64748b;--s600:#475569;
+  --white:#fff;--surf:#f8fcfb;
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--surf);overflow-x:hidden;line-height:1.6}
+h1,h2,h3,h4,h5{font-family:'Manrope',sans-serif;line-height:1.15}
+.material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 300,'GRAD' 0,'opsz' 24}
+img{max-width:100%;display:block}
 
-<html class="light" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>eLumino | Camera-Free Care Monitoring</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-          darkMode: "class",
-          theme: {
-            extend: {
-              "colors": {
-                      "surface-container-lowest": "#ffffff",
-                      "on-primary": "#ffffff",
-                      "surface": "#f1fbff",
-                      "tertiary": "#575b5b",
-                      "on-tertiary-fixed-variant": "#444748",
-                      "on-background": "#131d21",
-                      "surface-variant": "#d9e4e9",
-                      "on-primary-fixed": "#002020",
-                      "secondary-container": "#dae1e3",
-                      "tertiary-container": "#707373",
-                      "inverse-on-surface": "#e7f3f7",
-                      "on-secondary-fixed-variant": "#41484a",
-                      "on-surface": "#131d21",
-                      "on-secondary": "#ffffff",
-                      "secondary-fixed-dim": "#c1c8ca",
-                      "on-primary-fixed-variant": "#004f4f",
-                      "on-primary-container": "#e3fffe",
-                      "on-tertiary-container": "#f7f9f9",
-                      "outline-variant": "#bdc9c8",
-                      "on-secondary-container": "#5d6466",
-                      "primary-fixed-dim": "#76d6d5",
-                      "on-error-container": "#93000a",
-                      "error-container": "#ffdad6",
-                      "tertiary-fixed-dim": "#c4c7c7",
-                      "on-error": "#ffffff",
-                      "error": "#ba1a1a",
-                      "background": "#f1fbff",
-                      "primary": "#006565",
-                      "primary-fixed": "#93f2f2",
-                      "secondary": "#586062",
-                      "secondary-fixed": "#dde4e6",
-                      "on-secondary-fixed": "#161d1f",
-                      "surface-container-high": "#dfeaef",
-                      "surface-container-highest": "#d9e4e9",
-                      "on-surface-variant": "#3e4949",
-                      "on-tertiary-fixed": "#191c1d",
-                      "surface-tint": "#006a6a",
-                      "primary-container": "#008080",
-                      "surface-dim": "#d1dce0",
-                      "inverse-surface": "#283236",
-                      "surface-container": "#e4f0f4",
-                      "tertiary-fixed": "#e1e3e3",
-                      "inverse-primary": "#76d6d5",
-                      "outline": "#6e7979",
-                      "surface-container-low": "#eaf5fa",
-                      "surface-bright": "#f1fbff",
-                      "on-tertiary": "#ffffff"
-              },
-              "borderRadius": {
-                      "DEFAULT": "0.25rem",
-                      "lg": "0.5rem",
-                      "xl": "0.75rem",
-                      "full": "9999px"
-              },
-              "spacing": {
-                      "stack-sm": "12px",
-                      "stack-md": "24px",
-                      "stack-lg": "48px",
-                      "container-margin-dt": "40px",
-                      "container-margin-mb": "20px",
-                      "base": "8px",
-                      "gutter": "24px"
-            <!DOCTYPE html>
-            <html lang="en">
-            <head>
-            <meta charset="utf-8"/>
-            <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-            <title>eLumino | Camera-Free Care Monitoring</title>
-            <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-            <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
-            <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-            <script id="tailwind-config">
-                tailwind.config = {
-                    theme: {
-                        extend: {
-                            colors: {
-                                ink: '#08151b',
-                                mist: '#eff7f8',
-                                panel: '#ffffff',
-                                panelSoft: '#f7fbfc',
-                                line: '#d8e6e8',
-                                teal: {
-                                    50: '#effdfa',
-                                    100: '#d6f8f3',
-                                    200: '#a8ece2',
-                                    300: '#72dccf',
-                                    400: '#3bc2b2',
-                                    500: '#159d92',
-                                    600: '#0f7f77',
-                                    700: '#0f6660',
-                                    800: '#114f4c',
-                                    900: '#0e3d3b'
-                                }
-                            },
-                            fontFamily: {
-                                display: ['Space Grotesk', 'sans-serif'],
-                                body: ['Inter', 'sans-serif']
-                            },
-                            boxShadow: {
-                                glow: '0 20px 70px rgba(15, 127, 119, 0.16)',
-                                card: '0 16px 45px rgba(8, 21, 27, 0.08)'
-                            },
-                            borderRadius: {
-                                '2xl': '1.5rem',
-                                '3xl': '2rem'
-                            }
-                        }
-                    }
-                }
-            </script>
-            <style>
-                :root { color-scheme: light; }
-                html { scroll-behavior: smooth; }
-                body {
-                    background:
-                        radial-gradient(circle at top left, rgba(21, 157, 146, 0.14), transparent 28%),
-                        radial-gradient(circle at 90% 10%, rgba(59, 194, 178, 0.12), transparent 22%),
-                        linear-gradient(180deg, #f8fcfd 0%, #eff7f8 45%, #f6fbfc 100%);
-                    color: #08151b;
-                }
-                .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
-                .grid-noise {
-                    background-image: linear-gradient(rgba(8, 21, 27, 0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(8, 21, 27, 0.02) 1px, transparent 1px);
-                    background-size: 44px 44px;
-                }
-                .glass { background: rgba(255, 255, 255, 0.72); backdrop-filter: blur(18px); }
-                .reveal { opacity: 0; transform: translateY(22px); transition: opacity 700ms ease, transform 700ms ease; }
-                .reveal.is-visible { opacity: 1; transform: translateY(0); }
-                .float-slow { animation: float 8s ease-in-out infinite; }
-                .float-slower { animation: float 11s ease-in-out infinite reverse; }
-                .pulse-ring { animation: pulseRing 2.8s ease-in-out infinite; }
-                .stagger > * { transition-delay: var(--delay, 0ms); }
-                @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-12px); } }
-                @keyframes pulseRing { 0%, 100% { box-shadow: 0 0 0 0 rgba(15, 127, 119, 0.22); } 50% { box-shadow: 0 0 0 18px rgba(15, 127, 119, 0); } }
-                @media (prefers-reduced-motion: reduce) {
-                    html { scroll-behavior: auto; }
-                    *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
-                    .reveal { opacity: 1; transform: none; }
-                }
-            </style>
-            </head>
-            <body class="font-body text-slate-900">
-            <div aria-hidden="true" class="fixed inset-0 pointer-events-none overflow-hidden">
-                <div class="absolute -top-24 -left-24 h-72 w-72 rounded-full bg-teal-200/40 blur-3xl float-slower"></div>
-                <div class="absolute top-20 right-[-4rem] h-80 w-80 rounded-full bg-cyan-200/30 blur-3xl float-slow"></div>
-                <div class="absolute inset-x-0 top-0 h-24 grid-noise opacity-60"></div>
+/* ── UTILS ── */
+.container{max-width:1180px;margin:0 auto;padding:0 24px}
+.badge{display:inline-flex;align-items:center;gap:6px;padding:6px 16px;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.badge-teal{background:rgba(20,184,166,.1);border:1px solid rgba(20,184,166,.28);color:var(--t700)}
+.badge-white{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);color:rgba(255,255,255,.9)}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:999px;background:linear-gradient(135deg,var(--t600),var(--t800));color:#fff;font-size:14px;font-weight:700;text-decoration:none;border:none;cursor:pointer;transition:all .3s;box-shadow:0 8px 32px rgba(13,148,136,.32);letter-spacing:.01em}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 48px rgba(13,148,136,.44)}
+.btn-outline{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:999px;background:transparent;color:var(--ink);font-size:14px;font-weight:600;text-decoration:none;border:2px solid rgba(10,22,40,.14);cursor:pointer;transition:all .3s}
+.btn-outline:hover{background:rgba(10,22,40,.05);border-color:rgba(10,22,40,.28);transform:translateY(-2px)}
+.section{padding:100px 0}
+.section-label{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--t700)}
+.section-title{font-size:clamp(30px,4vw,52px);font-weight:900;color:var(--ink);letter-spacing:-.025em}
+.section-sub{font-size:18px;color:var(--s500);line-height:1.75;max-width:580px}
+
+/* ── ANIMATIONS ── */
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+@keyframes float2{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}
+@keyframes radar-sweep{to{transform:rotate(360deg)}}
+@keyframes pulse-ring{0%{transform:scale(1);opacity:.55}100%{transform:scale(2.2);opacity:0}}
+@keyframes breathe{0%,100%{opacity:.45;transform:scaleY(.7)}50%{opacity:1;transform:scaleY(1)}}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+@keyframes ticker-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes shimmer{0%{background-position:-200% center}100%{background-position:200% center}}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeInLeft{from{opacity:0;transform:translateX(-28px)}to{opacity:1;transform:translateX(0)}}
+@keyframes fadeInRight{from{opacity:0;transform:translateX(28px)}to{opacity:1;transform:translateX(0)}}
+
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .72s cubic-bezier(.16,1,.3,1),transform .72s cubic-bezier(.16,1,.3,1)}
+.reveal.vis{opacity:1;transform:none}
+.revl{opacity:0;transform:translateX(-28px);transition:opacity .72s cubic-bezier(.16,1,.3,1),transform .72s cubic-bezier(.16,1,.3,1)}
+.revl.vis{opacity:1;transform:none}
+.revr{opacity:0;transform:translateX(28px);transition:opacity .72s cubic-bezier(.16,1,.3,1),transform .72s cubic-bezier(.16,1,.3,1)}
+.revr.vis{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
+.d4{transition-delay:.32s}.d5{transition-delay:.40s}.d6{transition-delay:.48s}
+
+/* ── ANNOUNCEMENT ── */
+.ann{background:linear-gradient(135deg,var(--t900),var(--t700));color:#fff;text-align:center;padding:10px 24px;font-size:13px;font-weight:600;display:flex;align-items:center;justify-content:center;gap:10px;position:relative;z-index:200}
+.ann .dot{width:7px;height:7px;background:#4ade80;border-radius:50%;animation:blink 1.8s ease-in-out infinite;flex-shrink:0}
+
+/* ── NAV ── */
+nav{position:fixed;left:0;right:0;z-index:150;transition:all .35s ease}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:16px 32px;max-width:1180px;margin:0 auto}
+nav.scrolled{background:rgba(248,252,251,.93);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);border-bottom:1px solid rgba(20,184,166,.1);box-shadow:0 4px 28px rgba(10,22,40,.06)}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.nav-logo-icon{width:42px;height:42px;background:linear-gradient(135deg,var(--t600),var(--t900));border-radius:14px;display:flex;align-items:center;justify-content:center;color:#fff;box-shadow:0 4px 16px rgba(13,148,136,.3);flex-shrink:0}
+.nav-logo-name{font-family:'Manrope',sans-serif;font-weight:900;font-size:20px;color:var(--ink);letter-spacing:-.02em}
+.nav-logo-sub{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--s400)}
+.nav-links{display:flex;align-items:center;gap:32px;list-style:none}
+.nav-links a{font-size:14px;font-weight:500;color:var(--s600);text-decoration:none;transition:color .2s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--t600);transition:width .3s}
+.nav-links a:hover{color:var(--t700)}.nav-links a:hover::after{width:100%}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:transparent;border:none;border-radius:10px}
+.hamburger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;transition:all .3s}
+.mobile-menu{display:none;position:fixed;inset:0;background:rgba(248,252,251,.97);backdrop-filter:blur(20px);z-index:149;padding:100px 32px 32px;flex-direction:column;gap:4px}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-family:'Manrope',sans-serif;font-size:28px;font-weight:900;color:var(--ink);text-decoration:none;padding:16px 0;border-bottom:1px solid rgba(20,184,166,.1);transition:color .2s}
+.mobile-menu a:hover{color:var(--t700)}
+.mob-close{position:fixed;top:20px;right:24px;z-index:200;background:var(--ink);color:#fff;border:none;border-radius:12px;width:44px;height:44px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:18px;font-family:'Inter',sans-serif}
+
+/* ── HERO ── */
+.hero{min-height:100vh;display:flex;align-items:center;padding-top:120px;padding-bottom:80px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 50% at 18% 42%,rgba(20,184,166,.09) 0%,transparent 60%),radial-gradient(ellipse 55% 40% at 82% 62%,rgba(13,148,136,.07) 0%,transparent 55%),linear-gradient(180deg,#edfaf7 0%,#f8fcfb 55%,#f0f9f8 100%)}
+.hero-grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(20,184,166,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(20,184,166,.04) 1px,transparent 1px);background-size:60px 60px}
+.hero-orb{position:absolute;border-radius:50%;pointer-events:none}
+.orb1{top:8%;left:-8%;width:480px;height:480px;background:radial-gradient(circle,rgba(20,184,166,.13),transparent 70%);animation:float2 14s ease-in-out infinite}
+.orb2{bottom:4%;right:-4%;width:380px;height:380px;background:radial-gradient(circle,rgba(13,148,136,.1),transparent 70%);animation:float2 17s ease-in-out infinite reverse}
+.hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:60px}
+.hero-text{animation:fadeInLeft .9s cubic-bezier(.16,1,.3,1) .1s both}
+.hero-award{display:inline-flex;align-items:center;gap:8px;padding:7px 16px;border-radius:999px;background:linear-gradient(135deg,rgba(20,184,166,.12),rgba(13,148,136,.07));border:1px solid rgba(20,184,166,.3);margin-bottom:28px;font-size:12px;font-weight:700;color:var(--t700);letter-spacing:.05em}
+.hero-title{font-size:clamp(40px,5.5vw,72px);font-weight:900;letter-spacing:-.03em;color:var(--ink);margin-bottom:24px}
+.hero-title .acc{background:linear-gradient(135deg,var(--t600),var(--t400));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-desc{font-size:18px;color:var(--s500);line-height:1.78;margin-bottom:36px;max-width:510px}
+.hero-actions{display:flex;align-items:center;gap:16px;margin-bottom:52px;flex-wrap:wrap}
+.hero-stats{display:flex;gap:32px;padding-top:32px;border-top:1px solid rgba(20,184,166,.15)}
+.stat-val{font-family:'Manrope',sans-serif;font-size:32px;font-weight:900;color:var(--ink);letter-spacing:-.03em;line-height:1}
+.stat-lbl{font-size:13px;color:var(--s500);margin-top:4px}
+
+/* Radar visual */
+.hero-visual{animation:fadeInRight .9s cubic-bezier(.16,1,.3,1) .2s both;position:relative;display:flex;align-items:center;justify-content:center}
+.radar-wrap{position:relative;width:480px;height:480px}
+.r-rings{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.r-ring{position:absolute;border-radius:50%;border:1px solid rgba(20,184,166,.18)}
+.r-ring:nth-child(1){width:92%;height:92%}
+.r-ring:nth-child(2){width:68%;height:68%;border-color:rgba(20,184,166,.24)}
+.r-ring:nth-child(3){width:46%;height:46%;border-color:rgba(20,184,166,.32)}
+.r-ring:nth-child(4){width:24%;height:24%;border-color:rgba(20,184,166,.42)}
+.r-sweep{position:absolute;width:50%;height:50%;top:0;left:50%;transform-origin:bottom left;animation:radar-sweep 4s linear infinite}
+.r-sweep::after{content:'';position:absolute;inset:0;background:conic-gradient(from 0deg,transparent 65%,rgba(20,184,166,.14) 82%,rgba(20,184,166,.32) 100%);border-radius:0 100% 0 0}
+.r-dot{position:absolute;width:8px;height:8px;background:var(--t400);border-radius:50%;box-shadow:0 0 10px rgba(45,212,191,.9)}
+.r-dot1{top:24%;left:62%}.r-dot2{top:56%;left:31%}.r-dot3{top:71%;left:67%}
+.r-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:60px;height:60px;background:linear-gradient(135deg,var(--t600),var(--t900));border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;box-shadow:0 0 0 12px rgba(13,148,136,.1),0 0 0 24px rgba(13,148,136,.05),0 0 40px rgba(13,148,136,.45)}
+.float-card{position:absolute;background:rgba(255,255,255,.93);backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.8);border-radius:18px;padding:14px 18px;box-shadow:0 12px 40px rgba(10,22,40,.09);min-width:150px}
+.fc-lbl{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--s400);margin-bottom:5px}
+.fc-val{font-family:'Manrope',sans-serif;font-size:15px;font-weight:800;color:var(--ink);display:flex;align-items:center;gap:6px}
+.sdot{width:8px;height:8px;background:#22c55e;border-radius:50%;animation:blink 2s ease-in-out infinite;flex-shrink:0}
+.fc1{top:6%;left:-8%;animation:float 9s ease-in-out infinite}
+.fc2{top:14%;right:-6%;animation:float 11s ease-in-out infinite reverse}
+.fc3{bottom:8%;right:-4%;animation:float 10s ease-in-out infinite 1.2s}
+.breath-wave{display:flex;align-items:center;gap:2px;height:22px;margin-top:6px}
+.bb{width:3px;border-radius:2px;background:linear-gradient(to top,var(--t600),var(--t400))}
+.bb:nth-child(1){height:38%;animation:breathe 2.2s ease-in-out 0s infinite}
+.bb:nth-child(2){height:65%;animation:breathe 2.2s ease-in-out .12s infinite}
+.bb:nth-child(3){height:88%;animation:breathe 2.2s ease-in-out .24s infinite}
+.bb:nth-child(4){height:100%;animation:breathe 2.2s ease-in-out .36s infinite}
+.bb:nth-child(5){height:78%;animation:breathe 2.2s ease-in-out .48s infinite}
+.bb:nth-child(6){height:52%;animation:breathe 2.2s ease-in-out .6s infinite}
+.bb:nth-child(7){height:33%;animation:breathe 2.2s ease-in-out .72s infinite}
+.bb:nth-child(8){height:58%;animation:breathe 2.2s ease-in-out .84s infinite}
+.bb:nth-child(9){height:82%;animation:breathe 2.2s ease-in-out .96s infinite}
+.bb:nth-child(10){height:46%;animation:breathe 2.2s ease-in-out 1.08s infinite}
+.bb:nth-child(11){height:28%;animation:breathe 2.2s ease-in-out 1.2s infinite}
+.bb:nth-child(12){height:42%;animation:breathe 2.2s ease-in-out 1.32s infinite}
+
+/* ── TICKER ── */
+.ticker{background:rgba(255,255,255,.72);backdrop-filter:blur(12px);border-top:1px solid rgba(20,184,166,.12);border-bottom:1px solid rgba(20,184,166,.12);overflow:hidden;padding:14px 0}
+.ticker-track{display:flex;gap:56px;animation:ticker-scroll 22s linear infinite;white-space:nowrap}
+.ticker-item{display:flex;align-items:center;gap:9px;font-size:13px;font-weight:600;color:var(--s500);flex-shrink:0}
+.ticker-item .material-symbols-outlined{font-size:17px;color:var(--t600)}
+
+/* ── DARK PROBLEM ── */
+.dark-sec{background:linear-gradient(180deg,var(--ink) 0%,var(--ink2) 100%);color:#fff;position:relative;overflow:hidden;padding:100px 0}
+.dark-sec::before{content:'';position:absolute;top:-1px;left:0;right:0;height:56px;background:linear-gradient(to bottom,var(--surf),transparent);z-index:2}
+.dark-sec::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:56px;background:linear-gradient(to top,#fff,transparent);z-index:2}
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(255,255,255,.05);border-radius:24px;overflow:hidden;margin-top:60px}
+.stat-card{background:rgba(255,255,255,.04);padding:44px 36px;text-align:center;transition:background .3s}
+.stat-card:hover{background:rgba(20,184,166,.08)}
+.sc-num{font-family:'Manrope',sans-serif;font-size:52px;font-weight:900;letter-spacing:-.04em;line-height:1;background:linear-gradient(135deg,#fff,rgba(255,255,255,.65));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sc-lbl{font-size:14px;color:rgba(255,255,255,.5);margin-top:8px;font-weight:500;line-height:1.5}
+.sc-src{display:inline-block;margin-top:10px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--t400)}
+
+/* ── SOLUTION ── */
+.sol-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.feat-list{margin-top:28px;display:flex;flex-direction:column;gap:14px}
+.feat-item{display:flex;align-items:flex-start;gap:14px;padding:18px;border-radius:16px;background:#fff;border:1px solid rgba(20,184,166,.1);transition:all .3s;box-shadow:0 2px 12px rgba(10,22,40,.04);cursor:default}
+.feat-item:hover{border-color:rgba(20,184,166,.3);box-shadow:0 8px 28px rgba(20,184,166,.1);transform:translateX(4px)}
+.fi-icon{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,rgba(20,184,166,.12),rgba(13,148,136,.07));display:flex;align-items:center;justify-content:center;color:var(--t700);flex-shrink:0}
+.fi-icon .material-symbols-outlined{font-size:22px}
+.fi-h4{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:3px}
+.fi-p{font-size:13px;color:var(--s500);line-height:1.6}
+
+/* Device */
+.device-box{width:260px;height:320px;background:linear-gradient(160deg,var(--ink) 0%,#1a3040 60%,var(--t950) 100%);border-radius:40px;display:flex;align-items:center;justify-content:center;position:relative;box-shadow:0 40px 80px rgba(10,22,40,.38),0 0 0 1px rgba(255,255,255,.06),inset 0 1px 0 rgba(255,255,255,.1);animation:float 9s ease-in-out infinite;margin:0 auto}
+.device-box::before{content:'';position:absolute;inset:1px;border-radius:39px;background:linear-gradient(160deg,rgba(255,255,255,.08),rgba(255,255,255,.01))}
+.dev-label{position:absolute;top:-14px;left:50%;transform:translateX(-50%);font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.45);white-space:nowrap}
+.dev-radar{position:relative;width:148px;height:148px}
+.drr{position:absolute;inset:0;border-radius:50%;border:1px solid rgba(20,184,166,.3);animation:pulse-ring 3.2s ease-out infinite}
+.drr:nth-child(2){inset:16px;border-color:rgba(20,184,166,.42);animation-delay:.9s}
+.drr:nth-child(3){inset:32px;border-color:rgba(20,184,166,.55);animation-delay:1.8s}
+.drc{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:34px;height:34px;background:radial-gradient(circle,var(--t400),var(--t700));border-radius:50%;box-shadow:0 0 20px rgba(45,212,191,.7),0 0 40px rgba(45,212,191,.28)}
+.dev-leds{position:absolute;bottom:42px;left:50%;transform:translateX(-50%);display:flex;gap:8px}
+.led{width:8px;height:8px;border-radius:50%}
+.led-g{background:#22c55e;box-shadow:0 0 8px #22c55e;animation:blink 2.6s ease-in-out infinite}
+.led-t{background:var(--t400);box-shadow:0 0 8px var(--t400);animation:blink 3.1s ease-in-out infinite .5s}
+.dev-specs{display:flex;flex-direction:column;gap:10px;margin-top:28px}
+.dev-spec{display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;background:#fff;border:1px solid rgba(20,184,166,.12);font-size:12px;font-weight:700;color:var(--ink);box-shadow:0 2px 10px rgba(10,22,40,.05)}
+.dev-spec .material-symbols-outlined{font-size:16px;color:var(--t600)}
+
+/* ── HOW IT WORKS ── */
+.how-sec{background:#fff}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;margin-top:60px;position:relative}
+.steps::before{content:'';position:absolute;top:41px;left:12%;right:12%;height:1px;background:linear-gradient(90deg,transparent,var(--t200),transparent)}
+.step{text-align:center;position:relative}
+.step-icon{width:82px;height:82px;margin:0 auto 22px;border-radius:24px;background:linear-gradient(135deg,var(--t50),rgba(20,184,166,.06));border:2px solid rgba(20,184,166,.2);display:flex;align-items:center;justify-content:center;position:relative;transition:all .4s}
+.step:hover .step-icon{background:linear-gradient(135deg,var(--t600),var(--t800));border-color:transparent;box-shadow:0 16px 40px rgba(13,148,136,.28);transform:translateY(-4px)}
+.step-icon .material-symbols-outlined{font-size:30px;color:var(--t700);transition:color .4s}
+.step:hover .step-icon .material-symbols-outlined{color:#fff}
+.step-badge{position:absolute;top:-8px;right:-8px;width:22px;height:22px;background:var(--t600);color:#fff;border-radius:50%;font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center;border:2px solid #fff}
+.step-title{font-family:'Manrope',sans-serif;font-size:18px;font-weight:800;color:var(--ink);margin-bottom:9px}
+.step-desc{font-size:13.5px;color:var(--s500);line-height:1.7}
+
+/* ── FEATURES ── */
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:60px}
+.feat-card{background:#fff;border:1px solid rgba(20,184,166,.1);border-radius:24px;padding:32px;transition:all .4s cubic-bezier(.16,1,.3,1);position:relative;overflow:hidden;box-shadow:0 4px 20px rgba(10,22,40,.04)}
+.feat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--t600),var(--t400));opacity:0;transition:opacity .3s}
+.feat-card:hover{transform:translateY(-8px);box-shadow:0 24px 60px rgba(13,148,136,.12);border-color:rgba(20,184,166,.25)}
+.feat-card:hover::before{opacity:1}
+.fc-icon{width:54px;height:54px;border-radius:18px;background:linear-gradient(135deg,rgba(20,184,166,.12),rgba(13,148,136,.06));display:flex;align-items:center;justify-content:center;margin-bottom:18px;transition:all .4s}
+.feat-card:hover .fc-icon{background:linear-gradient(135deg,var(--t600),var(--t800));box-shadow:0 8px 24px rgba(13,148,136,.28)}
+.feat-card:hover .fc-icon .material-symbols-outlined{color:#fff}
+.fc-icon .material-symbols-outlined{font-size:26px;color:var(--t700);transition:color .4s}
+.fc-title{font-family:'Manrope',sans-serif;font-size:20px;font-weight:800;color:var(--ink);margin-bottom:9px}
+.fc-desc{font-size:13.5px;color:var(--s500);line-height:1.72}
+
+/* ── MARKET ── */
+.mkt-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;margin-top:60px}
+.bar-row{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.bar-lbl{font-size:13px;font-weight:600;color:var(--s500);width:168px;flex-shrink:0}
+.bar-track{flex:1;height:10px;background:rgba(20,184,166,.1);border-radius:999px;overflow:hidden}
+.bar-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--t700),var(--t400));width:0%;transition:width 1.6s cubic-bezier(.16,1,.3,1)}
+.bar-pct{font-size:13px;font-weight:700;color:var(--t700);width:44px;text-align:right}
+.mkt-callouts{display:flex;flex-direction:column;gap:18px}
+.mkt-callout{background:#fff;border-radius:18px;padding:22px;border:1px solid rgba(20,184,166,.1);box-shadow:0 4px 18px rgba(10,22,40,.04);display:flex;gap:14px;align-items:flex-start;transition:all .3s}
+.mkt-callout:hover{border-color:rgba(20,184,166,.25);box-shadow:0 12px 36px rgba(13,148,136,.09);transform:translateX(4px)}
+.mc-icon{width:46px;height:46px;border-radius:14px;background:linear-gradient(135deg,rgba(20,184,166,.1),rgba(13,148,136,.06));display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--t700)}
+.mc-icon .material-symbols-outlined{font-size:22px}
+.mc-title{font-weight:700;font-size:15px;color:var(--ink);margin-bottom:4px}
+.mc-text{font-size:13px;color:var(--s500);line-height:1.6}
+
+/* ── ROADMAP ── */
+.road-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:60px;position:relative}
+.road-grid::before{content:'';position:absolute;top:27px;left:18%;right:18%;height:2px;background:linear-gradient(90deg,var(--t700),var(--t300))}
+.road-card{position:relative;z-index:1;background:#fff;border:1px solid rgba(20,184,166,.14);border-radius:24px;padding:32px;text-align:center;box-shadow:0 4px 18px rgba(10,22,40,.04);transition:all .4s}
+.road-card.active{border-color:var(--t600);box-shadow:0 12px 40px rgba(13,148,136,.14)}
+.road-card:hover{transform:translateY(-6px);box-shadow:0 24px 60px rgba(13,148,136,.12)}
+.road-icon{width:54px;height:54px;margin:0 auto 18px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.ri-active{background:linear-gradient(135deg,var(--t600),var(--t800));box-shadow:0 8px 24px rgba(13,148,136,.38);color:#fff}
+.ri-next{background:rgba(20,184,166,.08);color:var(--t600)}
+.ri-future{background:rgba(100,116,139,.08);color:var(--s400)}
+.road-phase{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:9px}
+.rp-active{color:var(--t600)}.rp-next{color:var(--s400)}.rp-future{color:var(--s400);opacity:.5}
+.road-title{font-family:'Manrope',sans-serif;font-size:22px;font-weight:800;color:var(--ink);margin-bottom:10px}
+.road-desc{font-size:13.5px;color:var(--s500);line-height:1.7}
+
+/* ── TEAM v2 ── */
+.av-s{background:linear-gradient(135deg,#0f766e,#0d9488)}
+.av-f{background:linear-gradient(135deg,#1e40af,#3b82f6)}
+.av-m{background:linear-gradient(135deg,#7c3aed,#a855f7)}
+.av-a{background:linear-gradient(135deg,#be123c,#f43f5e)}
+.team-grid-v2{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;margin-top:68px}
+/* Card shell */
+.tm-card{background:#fff;border:1px solid rgba(20,184,166,.1);border-radius:28px;overflow:hidden;box-shadow:0 6px 32px rgba(10,22,40,.06);transition:all .45s cubic-bezier(.16,1,.3,1);display:flex;flex-direction:column}
+.tm-card:hover{transform:translateY(-8px);box-shadow:0 36px 88px rgba(13,148,136,.14);border-color:rgba(20,184,166,.28)}
+/* Banner + photo */
+.tm-banner{position:relative;height:84px;overflow:visible;flex-shrink:0}
+.tm-banner-bg{position:absolute;inset:0}
+.tm-banner-bg::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 75% 50%,rgba(45,212,191,.22),transparent 65%)}
+.tm-banner-bg-s{background:linear-gradient(135deg,#042f2e 0%,#0f766e 100%)}
+.tm-banner-bg-f{background:linear-gradient(135deg,#0c1445 0%,#1e40af 100%)}
+.tm-banner-bg-m{background:linear-gradient(135deg,#2e1065 0%,#7c3aed 100%)}
+.tm-banner-bg-a{background:linear-gradient(135deg,#4c0519 0%,#be123c 100%)}
+.tm-photo-wrap{position:absolute;bottom:-42px;left:32px;width:86px;height:86px;border-radius:50%;border:4px solid #fff;box-shadow:0 8px 28px rgba(10,22,40,.18);overflow:hidden;background:#fff;flex-shrink:0}
+.tm-photo{width:100%;height:100%;object-fit:cover;object-position:top center;border-radius:50%;display:block}
+.tm-initials{width:100%;height:100%;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-size:30px;font-weight:900;color:#fff}
+/* Card body */
+.tm-body{padding:56px 32px 28px;flex:1;display:flex;flex-direction:column}
+.tm-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:4px}
+.tm-name{font-family:'Manrope',sans-serif;font-size:21px;font-weight:900;color:var(--ink);letter-spacing:-.015em;line-height:1.2}
+.tm-li-btn{width:38px;height:38px;border-radius:12px;background:#0a66c2;color:#fff;display:flex;align-items:center;justify-content:center;text-decoration:none;transition:all .3s;flex-shrink:0;box-shadow:0 4px 14px rgba(10,102,194,.28)}
+.tm-li-btn:hover{background:#004182;transform:scale(1.08);box-shadow:0 8px 22px rgba(10,102,194,.4)}
+.tm-role{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--t600);margin-bottom:14px}
+.tm-cred{display:inline-flex;align-items:center;gap:6px;padding:5px 13px;border-radius:999px;background:rgba(20,184,166,.07);border:1px solid rgba(20,184,166,.18);font-size:12px;font-weight:600;color:var(--t700);margin-bottom:16px;width:fit-content}
+.tm-cred .material-symbols-outlined{font-size:14px}
+.tm-bio{font-size:13.5px;color:var(--s500);line-height:1.72;margin-bottom:18px;flex:1}
+.tm-tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:20px}
+.tm-tag{padding:4px 12px;border-radius:999px;background:rgba(10,22,40,.05);font-size:11.5px;font-weight:600;color:var(--s600);border:1px solid rgba(10,22,40,.07)}
+.tm-footer{display:flex;align-items:center;justify-content:space-between;padding-top:16px;border-top:1px solid rgba(20,184,166,.1);margin-top:auto}
+.tm-eq{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:var(--s500)}
+.tm-eq .material-symbols-outlined{font-size:15px;color:var(--t600)}
+.tm-li-text{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:var(--t700);text-decoration:none;padding:6px 14px;border-radius:999px;border:1px solid rgba(20,184,166,.2);background:rgba(20,184,166,.06);transition:all .3s}
+.tm-li-text:hover{background:var(--t600);color:#fff;border-color:var(--t600)}
+/* Team bottom strip */
+.team-strip{margin-top:40px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.t-strip-card{background:#fff;border:1px solid rgba(20,184,166,.1);border-radius:18px;padding:20px 22px;display:flex;align-items:center;gap:14px;box-shadow:0 3px 14px rgba(10,22,40,.04)}
+.t-strip-icon{width:44px;height:44px;border-radius:13px;background:linear-gradient(135deg,rgba(20,184,166,.1),rgba(13,148,136,.06));display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--t700)}
+.t-strip-icon .material-symbols-outlined{font-size:22px}
+.t-strip-label{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--s400);margin-bottom:3px}
+.t-strip-val{font-family:'Manrope',sans-serif;font-size:15px;font-weight:800;color:var(--ink)}
+.team-note{margin-top:32px;text-align:center}
+.team-note-inner{display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border-radius:16px;background:#fff;border:1px solid rgba(20,184,166,.14);box-shadow:0 4px 18px rgba(10,22,40,.04);font-size:13px;font-weight:600;color:var(--s500)}
+.team-note-inner .material-symbols-outlined{color:var(--t600);font-size:18px}
+
+/* ── CTA ── */
+.cta-inner{background:linear-gradient(135deg,var(--ink),var(--ink2) 50%,var(--t950));border-radius:40px;padding:80px;text-align:center;position:relative;overflow:hidden}
+.cta-inner::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:560px;height:560px;background:radial-gradient(circle,rgba(20,184,166,.16),transparent 60%)}
+.cta-inner::after{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);background-size:44px 44px}
+.cta-title{font-family:'Manrope',sans-serif;font-size:clamp(34px,4vw,56px);font-weight:900;color:#fff;letter-spacing:-.03em;line-height:1.1;margin-bottom:14px;position:relative;z-index:1}
+.cta-sub{font-size:18px;color:rgba(255,255,255,.58);margin-bottom:38px;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.65;position:relative;z-index:1}
+.cta-btns{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;position:relative;z-index:1}
+.btn-wp{display:inline-flex;align-items:center;gap:8px;padding:16px 36px;border-radius:999px;background:#fff;color:var(--t800);font-size:15px;font-weight:800;text-decoration:none;transition:all .3s;box-shadow:0 8px 28px rgba(0,0,0,.18)}
+.btn-wp:hover{transform:translateY(-3px);box-shadow:0 16px 48px rgba(0,0,0,.26)}
+.btn-wo{display:inline-flex;align-items:center;gap:8px;padding:16px 36px;border-radius:999px;background:rgba(255,255,255,.08);color:rgba(255,255,255,.9);font-size:15px;font-weight:700;text-decoration:none;border:1px solid rgba(255,255,255,.2);transition:all .3s}
+.btn-wo:hover{background:rgba(255,255,255,.14);transform:translateY(-3px)}
+
+/* ── FOOTER ── */
+footer{background:var(--ink);color:rgba(255,255,255,.65);padding:60px 0 28px}
+.foot-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:44px;border-bottom:1px solid rgba(255,255,255,.08)}
+.foot-brand{font-family:'Manrope',sans-serif;font-size:22px;font-weight:900;color:#fff;letter-spacing:-.02em;margin-bottom:10px}
+.foot-desc{font-size:13.5px;line-height:1.7;max-width:270px}
+.foot-badges{margin-top:18px;display:flex;gap:10px;flex-wrap:wrap}
+.foot-badge{display:inline-flex;align-items:center;gap:7px;padding:6px 13px;border-radius:999px;background:rgba(255,255,255,.06);color:rgba(255,255,255,.45);font-size:11px;font-weight:600}
+.foot-badge .dot{width:6px;height:6px;background:#22c55e;border-radius:50%}
+.foot-col-title{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:18px}
+.foot-links{list-style:none;display:flex;flex-direction:column;gap:11px}
+.foot-links a{font-size:13.5px;color:rgba(255,255,255,.55);text-decoration:none;transition:color .2s}
+.foot-links a:hover{color:var(--t400)}
+.foot-bottom{padding-top:26px;display:flex;align-items:center;justify-content:space-between;font-size:12.5px;flex-wrap:wrap;gap:14px}
+.foot-socials{display:flex;gap:14px;align-items:center}
+.foot-socials a{color:rgba(255,255,255,.38);text-decoration:none;font-size:13px;transition:color .2s}
+.foot-socials a:hover{color:var(--t400)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  .hero-inner{grid-template-columns:1fr;gap:40px}
+  .hero-visual{display:none}
+  .sol-grid{grid-template-columns:1fr}
+  .device-showcase{display:none}
+  .steps{grid-template-columns:repeat(2,1fr)}
+  .steps::before{display:none}
+  .feat-grid{grid-template-columns:repeat(2,1fr)}
+  .team-grid-v2{grid-template-columns:repeat(2,1fr)}
+  .team-strip{grid-template-columns:1fr}
+  .road-grid{grid-template-columns:1fr;gap:20px}
+  .road-grid::before{display:none}
+  .mkt-grid{grid-template-columns:1fr;gap:40px}
+  .foot-top{grid-template-columns:1fr 1fr;gap:28px}
+  .stats-grid{grid-template-columns:1fr}
+  .cta-inner{padding:48px 28px}
+}
+@media(max-width:768px){
+  .nav-links,.nav-cta{display:none}
+  .hamburger{display:flex}
+  .section{padding:60px 0}
+  .dark-sec{padding:70px 0}
+  .steps{grid-template-columns:1fr}
+  .feat-grid{grid-template-columns:1fr}
+  .team-grid-v2{grid-template-columns:1fr}
+  .hero-stats{flex-direction:column;gap:18px}
+  .foot-top{grid-template-columns:1fr}
+  .foot-bottom{flex-direction:column;text-align:center}
+  .hero-desc{font-size:16px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .reveal,.revl,.revr{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ANNOUNCEMENT BAR -->
+<div class="ann" id="ann">
+  <div class="dot"></div>
+  <span>🏆&nbsp; Selected for Phase 2 &nbsp;·&nbsp; Bounce Health Innovation Challenge — Newfoundland &amp; Labrador</span>
+  <div class="dot"></div>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#home" class="nav-logo">
+      <div class="nav-logo-icon">
+        <span class="material-symbols-outlined" style="font-size:22px">radar</span>
+      </div>
+      <div>
+        <div class="nav-logo-name">eLumino</div>
+        <div class="nav-logo-sub">Care Intelligence</div>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#solution">Solution</a></li>
+      <li><a href="#how-it-works">How it Works</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#roadmap">Roadmap</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="#cta" class="btn-primary">Request Demo <span class="material-symbols-outlined" style="font-size:17px">arrow_forward</span></a>
+    </div>
+    <button class="hamburger" id="burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mob">
+  <button class="mob-close" id="mobClose">✕</button>
+  <a href="#solution"      onclick="closeMob()">Solution</a>
+  <a href="#how-it-works"  onclick="closeMob()">How it Works</a>
+  <a href="#features"      onclick="closeMob()">Features</a>
+  <a href="#team"          onclick="closeMob()">Team</a>
+  <a href="#roadmap"       onclick="closeMob()">Roadmap</a>
+  <a href="#cta"           onclick="closeMob()">Request Demo</a>
+</div>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-grid-bg"></div>
+  <div class="hero-orb orb1"></div>
+  <div class="hero-orb orb2"></div>
+
+  <div class="container">
+    <div class="hero-inner">
+
+      <!-- TEXT -->
+      <div class="hero-text">
+        <div class="hero-award">
+          <span class="material-symbols-outlined" style="font-size:17px;background:linear-gradient(135deg,var(--t500),var(--t700));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">emoji_events</span>
+          Phase 2 · Bounce Health Innovation Challenge
+        </div>
+
+        <h1 class="hero-title">
+          Privacy-First<br>
+          <span class="acc">Elder Care</span><br>
+          Monitoring.
+        </h1>
+
+        <p class="hero-desc">
+          eLumino uses 60&thinsp;GHz radar&thinsp;+&thinsp;infrared fusion to detect falls, monitor breathing, and track motion — with zero cameras, zero wearables, and complete privacy.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#cta" class="btn-primary">
+            <span class="material-symbols-outlined" style="font-size:17px">play_circle</span>
+            Request a Demo
+          </a>
+          <a href="#how-it-works" class="btn-outline">
+            See how it works
+            <span class="material-symbols-outlined" style="font-size:17px">south</span>
+          </a>
+        </div>
+
+        <div class="hero-stats">
+          <div>
+            <div class="stat-val" data-count="99" data-suf="%">—</div>
+            <div class="stat-lbl">Detection accuracy target</div>
+          </div>
+          <div>
+            <div class="stat-val">0</div>
+            <div class="stat-lbl">Cameras or wearables</div>
+          </div>
+          <div>
+            <div class="stat-val">24/7</div>
+            <div class="stat-lbl">Ambient monitoring</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RADAR VISUAL -->
+      <div class="hero-visual">
+        <div class="radar-wrap">
+          <div class="r-rings">
+            <div class="r-ring"></div>
+            <div class="r-ring"></div>
+            <div class="r-ring"></div>
+            <div class="r-ring"></div>
+          </div>
+          <div class="r-sweep"></div>
+          <div class="r-dot r-dot1"></div>
+          <div class="r-dot r-dot2"></div>
+          <div class="r-dot r-dot3"></div>
+          <div class="r-center">
+            <span class="material-symbols-outlined" style="font-size:26px">radar</span>
+          </div>
+          <!-- Floating status cards -->
+          <div class="float-card fc1">
+            <div class="fc-lbl">Status</div>
+            <div class="fc-val"><div class="sdot"></div> Room Active</div>
+          </div>
+          <div class="float-card fc2">
+            <div class="fc-lbl">Detection</div>
+            <div class="fc-val">Fall Safe ✓</div>
+          </div>
+          <div class="float-card fc3">
+            <div class="fc-lbl">Breathing Rate</div>
+            <div class="fc-val">16 bpm</div>
+            <div class="breath-wave">
+              <div class="bb"></div><div class="bb"></div><div class="bb"></div>
+              <div class="bb"></div><div class="bb"></div><div class="bb"></div>
+              <div class="bb"></div><div class="bb"></div><div class="bb"></div>
+              <div class="bb"></div><div class="bb"></div><div class="bb"></div>
             </div>
+          </div>
+        </div>
+      </div>
 
-            <header class="fixed top-0 z-50 w-full border-b border-white/60 bg-white/70 backdrop-blur-xl">
-                <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4 sm:px-6 lg:px-8">
-                    <a class="flex items-center gap-3" href="#home">
-                        <span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-teal-700 text-white shadow-glow">
-                            <span class="material-symbols-outlined text-[22px]">radar</span>
-                        </span>
-                        <div>
-                            <div class="font-display text-xl font-bold tracking-tight text-ink">eLumino</div>
-                            <div class="text-xs font-medium uppercase tracking-[0.28em] text-slate-500">Care monitoring</div>
-                        </div>
-                    </a>
-                    <nav class="hidden items-center gap-8 md:flex">
-                        <a class="text-sm font-medium text-slate-600 transition-colors hover:text-teal-700" href="#how-it-works">How it Works</a>
-                        <a class="text-sm font-medium text-slate-600 transition-colors hover:text-teal-700" href="#features">Features</a>
-                        <a class="text-sm font-medium text-slate-600 transition-colors hover:text-teal-700" href="#design">Design</a>
-                        <a class="text-sm font-medium text-slate-600 transition-colors hover:text-teal-700" href="#roadmap">Roadmap</a>
-                    </nav>
-                    <div class="hidden md:block">
-                        <a class="inline-flex items-center gap-2 rounded-full bg-ink px-5 py-3 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5 hover:bg-teal-700" href="#cta">
-                            Request Demo
-                            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-                        </a>
-                    </div>
-                    <button aria-expanded="false" aria-controls="mobile-menu" id="menu-toggle" class="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-slate-200 bg-white text-ink shadow-sm md:hidden" type="button">
-                        <span class="material-symbols-outlined text-[24px]">menu</span>
-                    </button>
-                </div>
-                <div class="hidden border-t border-slate-200 bg-white/95 md:hidden" id="mobile-menu">
-                    <div class="mx-auto flex max-w-7xl flex-col gap-2 px-5 py-4 sm:px-6">
-                        <a class="rounded-2xl px-4 py-3 text-sm font-medium text-slate-700 hover:bg-teal-50 hover:text-teal-800" href="#how-it-works">How it Works</a>
-                        <a class="rounded-2xl px-4 py-3 text-sm font-medium text-slate-700 hover:bg-teal-50 hover:text-teal-800" href="#features">Features</a>
-                        <a class="rounded-2xl px-4 py-3 text-sm font-medium text-slate-700 hover:bg-teal-50 hover:text-teal-800" href="#design">Design</a>
-                        <a class="rounded-2xl px-4 py-3 text-sm font-medium text-slate-700 hover:bg-teal-50 hover:text-teal-800" href="#roadmap">Roadmap</a>
-                        <a class="mt-2 inline-flex items-center justify-center rounded-full bg-ink px-5 py-3 text-sm font-semibold text-white" href="#cta">Request Demo</a>
-                    </div>
-                </div>
-            </header>
+    </div>
+  </div>
+</section>
 
-            <main id="home" class="pt-28 sm:pt-32">
-                <section class="mx-auto max-w-7xl px-5 pb-16 sm:px-6 lg:px-8 lg:pb-24">
-                    <div class="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
-                        <div class="reveal space-y-8">
-                            <div class="flex flex-wrap gap-3">
-                                <span class="inline-flex items-center gap-2 rounded-full border border-teal-100 bg-white/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-teal-800 shadow-sm">
-                                    <span class="material-symbols-outlined text-[16px]">visibility_off</span> Camera-free
-                                </span>
-                                <span class="inline-flex items-center gap-2 rounded-full border border-teal-100 bg-white/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-teal-800 shadow-sm">
-                                    <span class="material-symbols-outlined text-[16px]">contactless</span> Contactless
-                                </span>
-                                <span class="inline-flex items-center gap-2 rounded-full border border-teal-100 bg-white/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-teal-800 shadow-sm">
-                                    <span class="material-symbols-outlined text-[16px]">medical_services</span> Medical-grade
-                                </span>
-                            </div>
-                            <div class="space-y-5">
-                                <h1 class="font-display text-5xl font-bold tracking-tight text-ink sm:text-6xl xl:text-7xl">Camera-free care monitoring for safer independent living.</h1>
-                                <p class="max-w-2xl text-lg leading-8 text-slate-600 sm:text-xl">Privacy-preserving 60 GHz radar intelligence that detects falls, breathing, and motion without cameras or wearables.</p>
-                            </div>
-                            <div class="flex flex-col gap-4 sm:flex-row">
-                                <a class="inline-flex items-center justify-center gap-2 rounded-full bg-teal-700 px-7 py-4 text-sm font-semibold text-white shadow-glow transition-transform hover:-translate-y-0.5 hover:bg-teal-800" href="#cta">
-                                    Request a Demo
-                                    <span class="material-symbols-outlined text-[18px]">north_east</span>
-                                </a>
-                                <a class="inline-flex items-center justify-center gap-2 rounded-full border border-slate-200 bg-white px-7 py-4 text-sm font-semibold text-ink shadow-sm transition-transform hover:-translate-y-0.5 hover:border-teal-200 hover:bg-teal-50" href="#how-it-works">
-                                    <span class="material-symbols-outlined text-[18px]">play_circle</span>
-                                    See how it works
-                                </a>
-                            </div>
-                            <div class="grid max-w-2xl gap-4 sm:grid-cols-3">
-                                <div class="reveal rounded-3xl border border-white/70 bg-white/80 p-5 shadow-sm backdrop-blur stagger" style="--delay: 80ms;">
-                                    <div class="text-3xl font-bold tracking-tight text-ink">99%</div>
-                                    <div class="mt-1 text-sm text-slate-600">Detection accuracy target</div>
-                                </div>
-                                <div class="reveal rounded-3xl border border-white/70 bg-white/80 p-5 shadow-sm backdrop-blur stagger" style="--delay: 160ms;">
-                                    <div class="text-3xl font-bold tracking-tight text-ink">0</div>
-                                    <div class="mt-1 text-sm text-slate-600">Cameras or wearables</div>
-                                </div>
-                                <div class="reveal rounded-3xl border border-white/70 bg-white/80 p-5 shadow-sm backdrop-blur stagger" style="--delay: 240ms;">
-                                    <div class="text-3xl font-bold tracking-tight text-ink">24/7</div>
-                                    <div class="mt-1 text-sm text-slate-600">Ambient monitoring</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="reveal relative lg:pl-8">
-                            <div class="relative mx-auto aspect-square max-w-[620px] rounded-[2rem] border border-white/80 bg-white/70 p-4 shadow-card backdrop-blur-xl">
-                                <div class="absolute -left-4 top-10 hidden rounded-2xl border border-white/70 bg-white/90 px-4 py-3 shadow-sm lg:block">
-                                    <div class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">Live status</div>
-                                    <div class="mt-1 flex items-center gap-2 text-sm font-semibold text-ink"><span class="h-2.5 w-2.5 rounded-full bg-emerald-500 pulse-ring"></span> Care room connected</div>
-                                </div>
-                                <div class="absolute -right-4 bottom-10 hidden rounded-2xl border border-white/70 bg-white/90 px-4 py-3 shadow-sm lg:block">
-                                    <div class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">Signal</div>
-                                    <div class="mt-1 text-sm font-semibold text-ink">Radar + thermal fusion</div>
-                                </div>
-                                <div class="relative flex h-full w-full items-center justify-center overflow-hidden rounded-[1.75rem] bg-gradient-to-br from-ink via-slate-900 to-teal-950">
-                                    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,194,178,0.28),transparent_36%)]"></div>
-                                    <div class="absolute left-1/2 top-1/2 h-80 w-80 -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/10"></div>
-                                    <div class="absolute left-1/2 top-1/2 h-56 w-56 -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/15"></div>
-                                    <div class="absolute left-1/2 top-1/2 h-36 w-36 -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/20"></div>
-                                    <div class="relative z-10 w-[76%] max-w-md rounded-[2rem] border border-white/10 bg-white/10 p-8 shadow-2xl backdrop-blur-xl">
-                                        <div class="flex items-center justify-between text-white/80"><span class="text-xs font-semibold uppercase tracking-[0.28em]">eLumino Core</span><span class="rounded-full bg-white/10 px-3 py-1 text-xs font-semibold">Active</span></div>
-                                        <div class="mt-10 grid place-items-center"><div class="relative flex h-44 w-44 items-center justify-center rounded-[2rem] border border-white/15 bg-white/10 shadow-xl"><div class="absolute inset-8 rounded-full border border-white/15"></div><div class="absolute inset-14 rounded-full border border-white/20"></div><div class="h-5 w-5 rounded-full bg-white shadow-[0_0_28px_rgba(255,255,255,0.7)]"></div></div></div>
-                                        <div class="mt-10 flex items-end justify-between gap-4 text-white"><div><div class="text-sm text-white/70">Device health</div><div class="mt-1 text-2xl font-bold">Stable</div></div><div class="text-right"><div class="text-sm text-white/70">Latency</div><div class="mt-1 text-2xl font-bold">&lt; 1s</div></div></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <div class="ticker-item"><span class="material-symbols-outlined">radar</span>60 GHz Radar Sensing</div>
+    <div class="ticker-item"><span class="material-symbols-outlined">thermostat</span>IR Thermal Fusion</div>
+    <div class="ticker-item"><span class="material-symbols-outlined">visibility_off</span>Camera-Free Privacy</div>
+    <div class="ticker-item"><span class="material-symbols-outlined">falling</span>Fall Detection</div>
+    <div class="ticker-item"><span class="material-symbols-outlined">bed</span>Bed-Exit Alerts</div>
+    <div class="ticker-item"><span class="material-symbols-outlined">air</span>Breathing Monitoring</div>
+    <div class="ticker-item"><span class="material-symbols-outlined">encrypted</span>End-to-End Encrypted</div>
+    <div class="ticker-item"><span class="material-symbols-outlined">notifications</span>Real-Time Alerts</div>
+    <div class="ticker-item"><span class="material-symbols-outlined">contactless</span>No Wearables</div>
+    <div class="ticker-item"><span class="material-symbols-outlined">medical_services</span>Medical-Grade</div>
+    <!-- duplicate for seamless loop -->
+    <div class="ticker-item"><span class="material-symbols-outlined">radar</span>60 GHz Radar Sensing</div>
+    <div class="ticker-item"><span class="material-symbols-outlined">thermostat</span>IR Thermal Fusion</div>
+    <div class="ticker-item"><span class="material-symbols-outlined">visibility_off</span>Camera-Free Privacy</div>
+    <div class="ticker-item"><span class="material-symbols-outlined">falling</span>Fall Detection</div>
+    <div class="ticker-item"><span class="material-symbols-outlined">bed</span>Bed-Exit Alerts</div>
+    <div class="ticker-item"><span class="material-symbols-outlined">air</span>Breathing Monitoring</div>
+    <div class="ticker-item"><span class="material-symbols-outlined">encrypted</span>End-to-End Encrypted</div>
+    <div class="ticker-item"><span class="material-symbols-outlined">notifications</span>Real-Time Alerts</div>
+    <div class="ticker-item"><span class="material-symbols-outlined">contactless</span>No Wearables</div>
+    <div class="ticker-item"><span class="material-symbols-outlined">medical_services</span>Medical-Grade</div>
+  </div>
+</div>
 
-                <section class="border-y border-white/70 bg-white/55 py-5 backdrop-blur-sm">
-                    <div class="mx-auto grid max-w-7xl grid-cols-2 gap-4 px-5 text-center sm:grid-cols-4 sm:px-6 lg:px-8">
-                        <div class="text-sm font-medium text-slate-600">Fall detection</div>
-                        <div class="text-sm font-medium text-slate-600">Bed-exit alerts</div>
-                        <div class="text-sm font-medium text-slate-600">Breathing monitoring</div>
-                        <div class="text-sm font-medium text-slate-600">Encrypted connectivity</div>
-                    </div>
-                </section>
+<!-- ═══════════════ PROBLEM (DARK) ═══════════════ -->
+<section class="dark-sec" id="problem">
+  <div class="container" style="position:relative;z-index:3">
+    <div class="reveal" style="text-align:center">
+      <span class="badge badge-white" style="margin-bottom:20px">The Problem</span>
+      <h2 class="section-title" style="color:#fff;margin:0 auto 16px;max-width:640px">Canada's Aging Crisis<br>Needs Better Solutions</h2>
+      <p class="section-sub" style="color:rgba(255,255,255,.5);margin:0 auto;text-align:center">
+        Dementia care is reactive, fragmented, and crisis-driven — leaving patients, caregivers, and health systems responding too late, too little.
+      </p>
+    </div>
 
-                <section id="how-it-works" class="mx-auto max-w-7xl px-5 py-20 sm:px-6 lg:px-8 lg:py-28">
-                    <div class="reveal mx-auto max-w-2xl text-center">
-                        <div class="mb-4 inline-flex rounded-full border border-teal-100 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-teal-700 shadow-sm">How it works</div>
-                        <h2 class="font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl">Intelligent sensing, privacy by design.</h2>
-                        <p class="mt-4 text-base leading-7 text-slate-600 sm:text-lg">A quiet chain of sensing, fusion, and alerts that blends into the room instead of dominating it.</p>
-                    </div>
-                    <div class="stagger mt-14 grid gap-6 md:grid-cols-4">
-                        <div class="reveal rounded-[2rem] border border-white/70 bg-white/80 p-7 shadow-card" style="--delay: 0ms;">
-                            <div class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-teal-50 text-teal-700"><span class="material-symbols-outlined">radar</span></div>
-                            <h3 class="mt-5 font-display text-xl font-semibold text-ink">Sense</h3>
-                            <p class="mt-3 text-sm leading-7 text-slate-600">High-frequency radar waves sweep the room silently and discreetly.</p>
-                        </div>
-                        <div class="reveal rounded-[2rem] border border-white/70 bg-white/80 p-7 shadow-card" style="--delay: 100ms;">
-                            <div class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-teal-50 text-teal-700"><span class="material-symbols-outlined">hub</span></div>
-                            <h3 class="mt-5 font-display text-xl font-semibold text-ink">Fuse</h3>
-                            <p class="mt-3 text-sm leading-7 text-slate-600">Radar and thermal inputs combine into a reliable local signal pipeline.</p>
-                        </div>
-                        <div class="reveal rounded-[2rem] border border-white/70 bg-white/80 p-7 shadow-card" style="--delay: 200ms;">
-                            <div class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-teal-50 text-teal-700"><span class="material-symbols-outlined">psychology</span></div>
-                            <h3 class="mt-5 font-display text-xl font-semibold text-ink">Detect</h3>
-                            <p class="mt-3 text-sm leading-7 text-slate-600">Embedded AI identifies falls, bed exits, and motion changes in milliseconds.</p>
-                        </div>
-                        <div class="reveal rounded-[2rem] border border-white/70 bg-white/80 p-7 shadow-card" style="--delay: 300ms;">
-                            <div class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-teal-50 text-teal-700"><span class="material-symbols-outlined">notification_important</span></div>
-                            <h3 class="mt-5 font-display text-xl font-semibold text-ink">Alert</h3>
-                            <p class="mt-3 text-sm leading-7 text-slate-600">Real-time notifications reach caregivers through the mobile app instantly.</p>
-                        </div>
-                    </div>
-                </section>
+    <div class="stats-grid">
+      <div class="stat-card reveal d1">
+        <div class="sc-num" data-count="750000" data-suf="+">750K+</div>
+        <div class="sc-lbl">Canadians living with Alzheimer's disease or other forms of dementia</div>
+        <span class="sc-src">Statistics Canada</span>
+      </div>
+      <div class="stat-card reveal d2">
+        <div class="sc-num">76K</div>
+        <div class="sc-lbl">New diagnoses every year in Canada — roughly one new case every 7 minutes</div>
+        <span class="sc-src">Alzheimer Society of Canada</span>
+      </div>
+      <div class="stat-card reveal d3">
+        <div class="sc-num">50%+</div>
+        <div class="sc-lbl">Of care cost and burden falls on family caregivers experiencing high burnout</div>
+        <span class="sc-src">Statistics Canada</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-                <section id="features" class="mx-auto max-w-7xl px-5 py-20 sm:px-6 lg:px-8 lg:py-28">
-                    <div class="reveal text-center">
-                        <div class="mb-4 inline-flex rounded-full border border-teal-100 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-teal-700 shadow-sm">Features</div>
-                        <h2 class="font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl">Complete peace of mind.</h2>
-                        <p class="mx-auto mt-4 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg">Designed for clinical reliability in home settings without making the room feel clinical.</p>
-                    </div>
-                    <div class="stagger mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-                        <article class="reveal rounded-[2rem] border border-white/70 bg-white/85 p-8 shadow-card" style="--delay: 0ms;">
-                            <span class="material-symbols-outlined text-3xl text-teal-700">falling</span>
-                            <h3 class="mt-5 font-display text-2xl font-semibold text-ink">Fall Detection</h3>
-                            <p class="mt-3 text-sm leading-7 text-slate-600">Precise vertical tracking detects rapid elevation changes even in low light.</p>
-                        </article>
-                        <article class="reveal rounded-[2rem] border border-white/70 bg-white/85 p-8 shadow-card" style="--delay: 80ms;">
-                            <span class="material-symbols-outlined text-3xl text-teal-700">bed</span>
-                            <h3 class="mt-5 font-display text-2xl font-semibold text-ink">Bed-Exit Alerts</h3>
-                            <p class="mt-3 text-sm leading-7 text-slate-600">Monitors transition timing to prevent night-time wandering and falls.</p>
-                        </article>
-                        <article class="reveal rounded-[2rem] border border-white/70 bg-white/85 p-8 shadow-card" style="--delay: 160ms;">
-                            <span class="material-symbols-outlined text-3xl text-teal-700">air</span>
-                            <h3 class="mt-5 font-display text-2xl font-semibold text-ink">Breathing Monitoring</h3>
-                            <p class="mt-3 text-sm leading-7 text-slate-600">Sub-millimeter radar detection of chest movements for heart and lung health.</p>
-                        </article>
-                        <article class="reveal rounded-[2rem] border border-white/70 bg-white/85 p-8 shadow-card" style="--delay: 240ms;">
-                            <span class="material-symbols-outlined text-3xl text-teal-700">thermostat</span>
-                            <h3 class="mt-5 font-display text-2xl font-semibold text-ink">Infrared Heat Sensing</h3>
-                            <p class="mt-3 text-sm leading-7 text-slate-600">Thermal array fusion adds a secondary layer of vital sign verification.</p>
-                        </article>
-                        <article class="reveal rounded-[2rem] border border-white/70 bg-white/85 p-8 shadow-card" style="--delay: 320ms;">
-                            <span class="material-symbols-outlined text-3xl text-teal-700">encrypted</span>
-                            <h3 class="mt-5 font-display text-2xl font-semibold text-ink">Secure Connectivity</h3>
-                            <p class="mt-3 text-sm leading-7 text-slate-600">End-to-end encrypted data transmission via local WiFi or 4G LTE backup.</p>
-                        </article>
-                        <article class="reveal rounded-[2rem] border border-white/70 bg-white/85 p-8 shadow-card" style="--delay: 400ms;">
-                            <span class="material-symbols-outlined text-3xl text-teal-700">dashboard_customize</span>
-                            <h3 class="mt-5 font-display text-2xl font-semibold text-ink">Dashboard + Alerts</h3>
-                            <p class="mt-3 text-sm leading-7 text-slate-600">A unified view for families and care teams to manage health trends.</p>
-                        </article>
-                    </div>
-                </section>
+<!-- ═══════════════ SOLUTION ═══════════════ -->
+<section class="section" id="solution" style="background:#fff">
+  <div class="container">
+    <div class="sol-grid">
 
-                <section id="design" class="overflow-hidden py-20 sm:py-28">
-                    <div class="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-                        <div class="grid items-center gap-12 rounded-[2.5rem] border border-white/70 bg-white/75 p-6 shadow-card backdrop-blur-xl lg:grid-cols-2 lg:p-10">
-                            <div class="order-2 relative min-h-[420px] lg:order-1">
-                                <div class="absolute inset-0 flex items-center justify-center">
-                                    <div class="relative flex h-[360px] w-[360px] items-center justify-center rounded-[2.25rem] border border-slate-200/70 bg-gradient-to-br from-ink via-slate-900 to-teal-950 shadow-2xl float-slow sm:h-[420px] sm:w-[420px]">
-                                        <div class="absolute inset-0 rounded-[2.25rem] bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.08),transparent_55%)]"></div>
-                                        <div class="absolute -left-5 top-10 rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-white/80 backdrop-blur-sm">Wall-mount ready</div>
-                                        <div class="absolute -right-10 top-1/2 rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-white/80 backdrop-blur-sm">Privacy-safe radar sensor</div>
-                                        <div class="absolute -bottom-6 right-8 rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-white/80 backdrop-blur-sm">USB-C power</div>
-                                        <div class="relative flex h-52 w-52 items-center justify-center rounded-[2rem] border border-white/15 bg-white/12 shadow-2xl backdrop-blur-xl sm:h-60 sm:w-60"><div class="absolute inset-10 rounded-full border border-white/15"></div><div class="absolute inset-16 rounded-full border border-white/15"></div><div class="h-6 w-6 rounded-full bg-white shadow-[0_0_24px_rgba(255,255,255,0.8)]"></div></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="order-1 space-y-6 lg:order-2">
-                                <div class="inline-flex rounded-full border border-teal-100 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-teal-700 shadow-sm">Design</div>
-                                <h2 class="font-display text-4xl font-bold tracking-tight text-ink sm:text-5xl">Technical but elegant.</h2>
-                                <p class="max-w-xl text-base leading-8 text-slate-600 sm:text-lg">We believe healthcare technology should blend into modern interiors while still delivering a serious sensing stack beneath the surface.</p>
-                                <ul class="space-y-4 pt-2 text-slate-700">
-                                    <li class="flex items-center gap-3 rounded-2xl bg-white/80 px-4 py-3 shadow-sm"><span class="material-symbols-outlined text-teal-700">check_circle</span> Matte anti-microbial finish</li>
-                                    <li class="flex items-center gap-3 rounded-2xl bg-white/80 px-4 py-3 shadow-sm"><span class="material-symbols-outlined text-teal-700">check_circle</span> Non-intrusive LED status rings</li>
-                                    <li class="flex items-center gap-3 rounded-2xl bg-white/80 px-4 py-3 shadow-sm"><span class="material-symbols-outlined text-teal-700">check_circle</span> Tool-free magnetic mounting</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+      <div class="revl">
+        <span class="section-label">Our Solution</span>
+        <h2 class="section-title" style="margin:14px 0 18px">Invisible Technology.<br>Visible Peace of Mind.</h2>
+        <p class="section-sub">
+          eLumino is a wall-mounted, camera-free monitoring device that uses 60&thinsp;GHz radar and infrared thermal sensing to protect elderly loved ones — without invading their privacy.
+        </p>
+        <div class="feat-list">
+          <div class="feat-item">
+            <div class="fi-icon"><span class="material-symbols-outlined">visibility_off</span></div>
+            <div>
+              <div class="fi-h4">Completely Camera-Free</div>
+              <div class="fi-p">No video. No images. Radar waves detect motion, position, and vital signs with zero visual data ever captured.</div>
+            </div>
+          </div>
+          <div class="feat-item">
+            <div class="fi-icon"><span class="material-symbols-outlined">contactless</span></div>
+            <div>
+              <div class="fi-h4">No Wearables Required</div>
+              <div class="fi-p">No smartwatches or pendants to wear. eLumino operates passively in the background, around the clock.</div>
+            </div>
+          </div>
+          <div class="feat-item">
+            <div class="fi-icon"><span class="material-symbols-outlined">psychology</span></div>
+            <div>
+              <div class="fi-h4">AI-Powered Confidence</div>
+              <div class="fi-p">Radar + infrared fusion on an edge processor classifies events in milliseconds, slashing false alarm rates.</div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-                <section id="roadmap" class="mx-auto max-w-7xl px-5 py-20 sm:px-6 lg:px-8 lg:py-28">
-                    <div class="reveal text-center">
-                        <div class="mb-4 inline-flex rounded-full border border-teal-100 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-teal-700 shadow-sm">Roadmap</div>
-                        <h2 class="font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl">Future roadmap</h2>
-                        <p class="mt-4 text-base leading-7 text-slate-600 sm:text-lg">Our journey toward comprehensive care intelligence.</p>
-                    </div>
-                    <div class="relative mt-14">
-                        <div class="absolute left-0 top-8 hidden h-px w-full bg-gradient-to-r from-transparent via-teal-200 to-transparent md:block"></div>
-                        <div class="grid gap-6 md:grid-cols-3 md:gap-8">
-                            <article class="reveal relative rounded-[2rem] border border-teal-200/70 bg-white p-8 shadow-card" style="--delay: 0ms;">
-                                <div class="mb-4 inline-flex rounded-full bg-teal-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-teal-700">Current</div>
-                                <h3 class="font-display text-2xl font-semibold text-ink">eLumino Core</h3>
-                                <p class="mt-3 text-sm leading-7 text-slate-600">Single room fall detection and breathing monitoring for bedrooms and living areas.</p>
-                            </article>
-                            <article class="reveal relative rounded-[2rem] border border-slate-200/70 bg-white p-8 shadow-card" style="--delay: 120ms;">
-                                <div class="mb-4 inline-flex rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-slate-600">Next</div>
-                                <h3 class="font-display text-2xl font-semibold text-ink">eLumino Pro</h3>
-                                <p class="mt-3 text-sm leading-7 text-slate-600">Multi-room mesh networking allowing whole-home tracking without dead zones.</p>
-                            </article>
-                            <article class="reveal relative rounded-[2rem] border border-slate-200/70 bg-white p-8 shadow-card" style="--delay: 240ms;">
-                                <div class="mb-4 inline-flex rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-slate-600">Future</div>
-                                <h3 class="font-display text-2xl font-semibold text-ink">Care Intelligence Hub</h3>
-                                <p class="mt-3 text-sm leading-7 text-slate-600">Predictive health analytics that alert families to subtle changes in daily patterns.</p>
-                            </article>
-                        </div>
-                    </div>
-                </section>
+      <!-- DEVICE MOCKUP -->
+      <div class="revr" style="display:flex;flex-direction:column;align-items:center;gap:0" id="device-showcase">
+        <div style="position:relative">
+          <div class="device-box">
+            <div class="dev-label">eLumino Core · 60 GHz</div>
+            <div class="dev-radar">
+              <div class="drr"></div>
+              <div class="drr"></div>
+              <div class="drr"></div>
+              <div class="drc"></div>
+            </div>
+            <div class="dev-leds">
+              <div class="led led-g"></div>
+              <div class="led led-t"></div>
+            </div>
+          </div>
+        </div>
+        <div class="dev-specs" style="max-width:260px;margin-top:28px">
+          <div class="dev-spec"><span class="material-symbols-outlined">attach_file</span>Tool-free magnetic wall mount</div>
+          <div class="dev-spec"><span class="material-symbols-outlined">power</span>USB-C powered</div>
+          <div class="dev-spec"><span class="material-symbols-outlined">clean_hands</span>Matte anti-microbial finish</div>
+          <div class="dev-spec"><span class="material-symbols-outlined">wifi</span>WiFi + 4G LTE backup</div>
+        </div>
+      </div>
 
-                <section id="cta" class="mx-auto max-w-7xl px-5 pb-20 sm:px-6 lg:px-8 lg:pb-28">
-                    <div class="reveal overflow-hidden rounded-[2.5rem] border border-teal-100 bg-gradient-to-br from-teal-700 via-teal-800 to-ink p-8 text-white shadow-2xl sm:p-12 lg:p-16">
-                        <div class="grid items-center gap-8 lg:grid-cols-[1.1fr_0.9fr]">
-                            <div>
-                                <div class="inline-flex rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-white/80">Call to action</div>
-                                <h2 class="mt-5 font-display text-4xl font-bold tracking-tight sm:text-5xl">Ready for a safer future?</h2>
-                                <p class="mt-4 max-w-2xl text-base leading-8 text-white/80 sm:text-lg">Join the waitlist or schedule a personalized demonstration of our privacy-first monitoring technology.</p>
-                            </div>
-                            <div class="flex flex-col gap-4 sm:flex-row lg:justify-end">
-                                <a class="inline-flex items-center justify-center rounded-full bg-white px-6 py-4 text-sm font-semibold text-teal-800 transition-transform hover:-translate-y-0.5 hover:bg-teal-50" href="#">Request Demo</a>
-                                <a class="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-6 py-4 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5 hover:bg-white/15" href="#">Contact Sales</a>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </main>
+    </div>
+  </div>
+</section>
 
-            <footer class="border-t border-white/70 bg-white/70 backdrop-blur-xl">
-                <div class="mx-auto grid max-w-7xl gap-10 px-5 py-14 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-8">
-                    <div class="space-y-4 max-w-md">
-                        <div class="font-display text-2xl font-bold tracking-tight text-ink">eLumino</div>
-                        <p class="text-sm leading-7 text-slate-600">Privacy-first room monitoring for modern elder care.</p>
-                        <div class="flex gap-3 text-teal-700">
-                            <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-teal-50"><span class="material-symbols-outlined text-[20px]">mail</span></span>
-                            <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-teal-50"><span class="material-symbols-outlined text-[20px]">call</span></span>
-                            <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-teal-50"><span class="material-symbols-outlined text-[20px]">location_on</span></span>
-                        </div>
-                    </div>
-                    <div class="grid grid-cols-2 gap-8 sm:gap-12">
-                        <div class="space-y-3">
-                            <h4 class="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">Product</h4>
-                            <ul class="space-y-2 text-sm text-slate-600">
-                                <li><a class="transition-colors hover:text-teal-700" href="#">Documentation</a></li>
-                                <li><a class="transition-colors hover:text-teal-700" href="#">Support</a></li>
-                                <li><a class="transition-colors hover:text-teal-700" href="#">Integrations</a></li>
-                            </ul>
-                        </div>
-                        <div class="space-y-3">
-                            <h4 class="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">Legal</h4>
-                            <ul class="space-y-2 text-sm text-slate-600">
-                                <li><a class="transition-colors hover:text-teal-700" href="#">Privacy Policy</a></li>
-                                <li><a class="transition-colors hover:text-teal-700" href="#">Terms of Service</a></li>
-                                <li><a class="transition-colors hover:text-teal-700" href="#">Contact Us</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="mx-auto max-w-7xl px-5 pb-10 sm:px-6 lg:px-8">
-                    <div class="border-t border-slate-200 pt-6 text-sm text-slate-500">© 2026 eLumino AI. All rights reserved.</div>
-                </div>
-            </footer>
+<!-- ═══════════════ HOW IT WORKS ═══════════════ -->
+<section class="section how-sec" id="how-it-works">
+  <div class="container">
+    <div class="reveal" style="text-align:center">
+      <span class="section-label">How it Works</span>
+      <h2 class="section-title" style="margin:14px auto 14px;max-width:480px">Four Steps to Safer Care</h2>
+      <p class="section-sub" style="margin:0 auto;text-align:center">A quiet chain of sensing, fusion, AI detection, and tiered alerts — invisible to residents, essential for caregivers.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal d1">
+        <div class="step-icon">
+          <span class="material-symbols-outlined">radar</span>
+          <div class="step-badge">1</div>
+        </div>
+        <div class="step-title">Sense</div>
+        <div class="step-desc">60&thinsp;GHz millimeter-wave radar silently sweeps the room, capturing precise motion, position, and micro-vibrations without light.</div>
+      </div>
+      <div class="step reveal d2">
+        <div class="step-icon">
+          <span class="material-symbols-outlined">hub</span>
+          <div class="step-badge">2</div>
+        </div>
+        <div class="step-title">Fuse</div>
+        <div class="step-desc">Radar data fuses with IR thermal sensing on the edge processor — two modalities combined for higher confidence and fewer false alarms.</div>
+      </div>
+      <div class="step reveal d3">
+        <div class="step-icon">
+          <span class="material-symbols-outlined">psychology</span>
+          <div class="step-badge">3</div>
+        </div>
+        <div class="step-title">Detect</div>
+        <div class="step-desc">Embedded AI classifies falls, bed exits, abnormal breathing, and long inactivity in milliseconds using temporal pattern analysis.</div>
+      </div>
+      <div class="step reveal d4">
+        <div class="step-icon">
+          <span class="material-symbols-outlined">notification_important</span>
+          <div class="step-badge">4</div>
+        </div>
+        <div class="step-title">Alert</div>
+        <div class="step-desc">Caregivers receive instant, tiered notifications through the eLumino mobile app — with enough context to respond confidently.</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-            <script>
-                document.addEventListener('DOMContentLoaded', () => {
-                    const menuToggle = document.getElementById('menu-toggle');
-                    const mobileMenu = document.getElementById('mobile-menu');
-                    if (menuToggle && mobileMenu) {
-                        menuToggle.addEventListener('click', () => {
-                            const isOpen = !mobileMenu.classList.contains('hidden');
-                            mobileMenu.classList.toggle('hidden');
-                            menuToggle.setAttribute('aria-expanded', String(!isOpen));
-                            menuToggle.querySelector('.material-symbols-outlined').textContent = isOpen ? 'menu' : 'close';
-                        });
-                        mobileMenu.querySelectorAll('a').forEach((link) => {
-                            link.addEventListener('click', () => {
-                                mobileMenu.classList.add('hidden');
-                                menuToggle.setAttribute('aria-expanded', 'false');
-                                menuToggle.querySelector('.material-symbols-outlined').textContent = 'menu';
-                            });
-                        });
-                    }
-                    const revealItems = document.querySelectorAll('.reveal');
-                    if ('IntersectionObserver' in window) {
-                        const observer = new IntersectionObserver((entries) => {
-                            entries.forEach((entry) => {
-                                if (entry.isIntersecting) {
-                                    entry.target.classList.add('is-visible');
-                                    observer.unobserve(entry.target);
-                                }
-                            });
-                        }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
-                        revealItems.forEach((item) => observer.observe(item));
-                    } else {
-                        revealItems.forEach((item) => item.classList.add('is-visible'));
-                    }
-                });
-            </script>
-            </body>
-            </html>
+<!-- ═══════════════ FEATURES ═══════════════ -->
+<section class="section" id="features" style="background:linear-gradient(135deg,#f8fcfb,#f0fdf9)">
+  <div class="container">
+    <div class="reveal" style="text-align:center">
+      <span class="section-label">Features</span>
+      <h2 class="section-title" style="margin:14px auto 14px">Complete Peace of Mind</h2>
+      <p class="section-sub" style="margin:0 auto;text-align:center">Clinical reliability in home settings — without making any room feel clinical.</p>
+    </div>
+    <div class="feat-grid">
+      <div class="feat-card reveal d1">
+        <div class="fc-icon"><span class="material-symbols-outlined">falling</span></div>
+        <div class="fc-title">Fall Detection</div>
+        <div class="fc-desc">Precise vertical tracking detects rapid elevation changes even in complete darkness. Multi-stage temporal filtering eliminates false positives before alerting caregivers.</div>
+      </div>
+      <div class="feat-card reveal d2">
+        <div class="fc-icon"><span class="material-symbols-outlined">bed</span></div>
+        <div class="fc-title">Bed-Exit Alerts</div>
+        <div class="fc-desc">Monitors bed-transition timing patterns to prevent night-time wandering and fall risk. Configurable sensitivity thresholds per resident and per time-of-day.</div>
+      </div>
+      <div class="feat-card reveal d3">
+        <div class="fc-icon"><span class="material-symbols-outlined">air</span></div>
+        <div class="fc-title">Breathing Monitoring</div>
+        <div class="fc-desc">Sub-millimeter radar detection of chest-wall micro-movements provides continuous respiratory rate tracking with anomaly alerts for apnea or distress.</div>
+      </div>
+      <div class="feat-card reveal d4">
+        <div class="fc-icon"><span class="material-symbols-outlined">thermostat</span></div>
+        <div class="fc-title">Infrared Thermal Fusion</div>
+        <div class="fc-desc">Thermal array adds a secondary sensor layer, verifying human presence and enhancing confidence on every radar-based detection event.</div>
+      </div>
+      <div class="feat-card reveal d5">
+        <div class="fc-icon"><span class="material-symbols-outlined">encrypted</span></div>
+        <div class="fc-title">Secure Connectivity</div>
+        <div class="fc-desc">End-to-end encrypted transmission via local WiFi or 4G LTE backup. On-device edge processing means sensitive data never leaves the home unnecessarily.</div>
+      </div>
+      <div class="feat-card reveal d6">
+        <div class="fc-icon"><span class="material-symbols-outlined">dashboard_customize</span></div>
+        <div class="fc-title">Dashboard &amp; Alerts</div>
+        <div class="fc-desc">A unified caregiver app with real-time room status, health trend charts, and tiered notifications for families and professional care teams.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ MARKET ═══════════════ -->
+<section class="section" id="market" style="background:linear-gradient(135deg,#f0fdf9,#f8fcfb)">
+  <div class="container">
+    <div class="reveal" style="text-align:center">
+      <span class="section-label">Market Opportunity</span>
+      <h2 class="section-title" style="margin:14px auto 14px">Built for a Growing Need</h2>
+      <p class="section-sub" style="margin:0 auto;text-align:center">Newfoundland &amp; Labrador has Canada's lowest care-access indicators and some of the highest aging-population ratios — the ideal first market.</p>
+    </div>
+    <div class="mkt-grid">
+      <div class="revl">
+        <h3 style="font-family:'Manrope',sans-serif;font-size:20px;font-weight:800;color:var(--ink);margin-bottom:7px">NL Senior Care Indicators</h3>
+        <p style="font-size:14px;color:var(--s500);margin-bottom:26px">Key metrics highlighting urgent demand for better monitoring solutions in the region.</p>
+        <div class="bar-row"><span class="bar-lbl">Chronic conditions (65+)</span><div class="bar-track"><div class="bar-fill" data-w="88"></div></div><span class="bar-pct">88%</span></div>
+        <div class="bar-row"><span class="bar-lbl">3+ chronic conditions</span><div class="bar-track"><div class="bar-fill" data-w="46"></div></div><span class="bar-pct">45.5%</span></div>
+        <div class="bar-row"><span class="bar-lbl">Without care plans</span><div class="bar-track"><div class="bar-fill" data-w="70"></div></div><span class="bar-pct">~70%</span></div>
+        <div class="bar-row"><span class="bar-lbl">Income support (GIS)</span><div class="bar-track"><div class="bar-fill" data-w="44"></div></div><span class="bar-pct">44%</span></div>
+        <div class="bar-row"><span class="bar-lbl">Caregiver burnout</span><div class="bar-track"><div class="bar-fill" data-w="52"></div></div><span class="bar-pct">~50%</span></div>
+        <div style="margin-top:18px;padding:14px 16px;border-radius:14px;background:rgba(20,184,166,.07);border:1px solid rgba(20,184,166,.18)">
+          <div style="font-size:13px;font-weight:700;color:var(--t700);margin-bottom:4px">TAM: Over $3 Billion annually in Canadian dementia care costs</div>
+          <div style="font-size:12px;color:var(--s500)">$67,000+ CAD spent per client per year · Alzheimer Society of Canada</div>
+        </div>
+      </div>
+      <div class="revr">
+        <div class="mkt-callouts">
+          <div class="mkt-callout">
+            <div class="mc-icon"><span class="material-symbols-outlined">people</span></div>
+            <div>
+              <div class="mc-title">Primary: Adults 65+ &amp; Their Families</div>
+              <div class="mc-text">Private caregivers and adult children managing safety at home, especially families supporting parents with cognitive decline or frailty.</div>
+            </div>
+          </div>
+          <div class="mkt-callout">
+            <div class="mc-icon"><span class="material-symbols-outlined">apartment</span></div>
+            <div>
+              <div class="mc-title">Secondary: Care Organizations</div>
+              <div class="mc-text">Senior-support organizations, home-care providers, assisted living facilities, and community care partners across Newfoundland first, then nationally.</div>
+            </div>
+          </div>
+          <div class="mkt-callout">
+            <div class="mc-icon"><span class="material-symbols-outlined">trending_up</span></div>
+            <div>
+              <div class="mc-title">B2C + B2B Revenue Model</div>
+              <div class="mc-text">Freemium device with premium subscription ($5–20/month), plus B2B partnerships with long-term care homes, hospitals, and insurance providers.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ ROADMAP ═══════════════ -->
+<section class="section" id="roadmap" style="background:#fff">
+  <div class="container">
+    <div class="reveal" style="text-align:center">
+      <span class="section-label">Roadmap</span>
+      <h2 class="section-title" style="margin:14px auto 14px">Where We're Headed</h2>
+      <p class="section-sub" style="margin:0 auto;text-align:center">Our journey toward comprehensive AI-powered care intelligence for every aging home.</p>
+    </div>
+    <div class="road-grid">
+      <div class="road-card active reveal d1">
+        <div class="road-icon ri-active"><span class="material-symbols-outlined" style="font-size:24px">radar</span></div>
+        <div class="road-phase rp-active">Now · Phase 2</div>
+        <div class="road-title">eLumino Core</div>
+        <div class="road-desc">Single-room fall detection and breathing monitoring. 60&thinsp;GHz radar + IR fusion prototype. Mobile caregiver app. Pilot deployment in Newfoundland &amp; Labrador.</div>
+      </div>
+      <div class="road-card reveal d2">
+        <div class="road-icon ri-next"><span class="material-symbols-outlined" style="font-size:24px">hub</span></div>
+        <div class="road-phase rp-next">Next · Phase 3</div>
+        <div class="road-title">eLumino Pro</div>
+        <div class="road-desc">Multi-room mesh networking for whole-home tracking without dead zones. Advanced sleep analytics. Integration with existing home-care platforms and EMR systems.</div>
+      </div>
+      <div class="road-card reveal d3">
+        <div class="road-icon ri-future"><span class="material-symbols-outlined" style="font-size:24px">memory</span></div>
+        <div class="road-phase rp-future">Future · Vision</div>
+        <div class="road-title">Care Intelligence Hub</div>
+        <div class="road-desc">Predictive analytics detecting subtle long-term behavioral changes. AI-powered advanced care plan integration. National scaling and API licensing to digital health platforms.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ TEAM ═══════════════ -->
+<section class="section" id="team" style="background:linear-gradient(160deg,#f0fdf9 0%,#f8fcfb 55%,#e8f9f6 100%)">
+  <div class="container">
+    <div class="reveal" style="text-align:center">
+      <span class="section-label">The Team</span>
+      <h2 class="section-title" style="margin:14px auto 14px">Built by People Who Care</h2>
+      <p class="section-sub" style="margin:0 auto;text-align:center">A multidisciplinary team of engineers, health scientists, clinicians, and business strategists — united by a mission to make aging safer and more dignified.</p>
+    </div>
+
+    <!-- ── 2×2 Professional Cards ── -->
+    <div class="team-grid-v2">
+
+      <!-- ── Syed Omar Faruk ── -->
+      <div class="tm-card reveal d1">
+        <div class="tm-banner">
+          <div class="tm-banner-bg tm-banner-bg-s"></div>
+          <div class="tm-photo-wrap">
+            <img class="tm-photo" src="photos/syed.png" alt="Syed Omar Faruk"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="tm-initials av-s" style="display:none">SO</div>
+          </div>
+        </div>
+        <div class="tm-body">
+          <div class="tm-top">
+            <div>
+              <div class="tm-name">Syed Omar Faruk</div>
+              <div class="tm-role">Team Lead &nbsp;·&nbsp; Product &amp; Tech Strategy</div>
+            </div>
+            <a href="https://www.linkedin.com/in/sof/" target="_blank" rel="noopener" class="tm-li-btn" title="View LinkedIn Profile">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+          </div>
+          <div class="tm-cred">
+            <span class="material-symbols-outlined">verified</span>
+            Data Scientist &nbsp;·&nbsp; Tech Entrepreneur &nbsp;·&nbsp; UK Start-up Founder
+          </div>
+          <div class="tm-bio">
+            Responsible for shaping team processes, product direction, and technical prototyping. Expert in hardware engineering and human-computer interaction, with a thriving tech start-up in the UK. Currently leading the eLumino 60&thinsp;GHz radar prototype development end-to-end.
+          </div>
+          <div class="tm-tags">
+            <span class="tm-tag">Hardware Engineering</span>
+            <span class="tm-tag">Data Science</span>
+            <span class="tm-tag">HCI</span>
+            <span class="tm-tag">Radar Sensing</span>
+            <span class="tm-tag">Start-up Leadership</span>
+          </div>
+          <div class="tm-footer">
+            <div class="tm-eq"><span class="material-symbols-outlined">pie_chart</span>25% Co-Founder Equity</div>
+            <a href="https://www.linkedin.com/in/sof/" target="_blank" rel="noopener" class="tm-li-text">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              View Profile
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Frank Kiwanuka ── -->
+      <div class="tm-card reveal d2">
+        <div class="tm-banner">
+          <div class="tm-banner-bg tm-banner-bg-f"></div>
+          <div class="tm-photo-wrap">
+            <img class="tm-photo" src="photos/frank.png" alt="Frank Kiwanuka"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="tm-initials av-f" style="display:none">FK</div>
+          </div>
+        </div>
+        <div class="tm-body">
+          <div class="tm-top">
+            <div>
+              <div class="tm-name">Frank Kiwanuka</div>
+              <div class="tm-role">Technical &amp; AI Lead &nbsp;·&nbsp; Co-Founder</div>
+            </div>
+            <a href="https://www.linkedin.com/in/frank-kiwanuka-9a0a7972/" target="_blank" rel="noopener" class="tm-li-btn" title="View LinkedIn Profile">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+          </div>
+          <div class="tm-cred">
+            <span class="material-symbols-outlined">school</span>
+            PhD · Health Sciences &nbsp;·&nbsp; 10+ Years Clinical &amp; AI Experience
+          </div>
+          <div class="tm-bio">
+            Responsible for strategic and technical leadership in research, design, and implementation of AI innovation solutions. Brings over a decade of expertise spanning healthcare clinical environments, AI in medicine, and digital health product development.
+          </div>
+          <div class="tm-tags">
+            <span class="tm-tag">PhD Health Sciences</span>
+            <span class="tm-tag">AI in Healthcare</span>
+            <span class="tm-tag">Clinical Systems</span>
+            <span class="tm-tag">Digital Health</span>
+            <span class="tm-tag">System Architecture</span>
+          </div>
+          <div class="tm-footer">
+            <div class="tm-eq"><span class="material-symbols-outlined">pie_chart</span>25% Co-Founder Equity</div>
+            <a href="https://www.linkedin.com/in/frank-kiwanuka-9a0a7972/" target="_blank" rel="noopener" class="tm-li-text">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              View Profile
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Md Misbah Uddin ── -->
+      <div class="tm-card reveal d3">
+        <div class="tm-banner">
+          <div class="tm-banner-bg tm-banner-bg-m"></div>
+          <div class="tm-photo-wrap">
+            <img class="tm-photo" src="photos/misbah.png" alt="Md Misbah Uddin"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="tm-initials av-m" style="display:none">MU</div>
+          </div>
+        </div>
+        <div class="tm-body">
+          <div class="tm-top">
+            <div>
+              <div class="tm-name">Md Misbah Uddin</div>
+              <div class="tm-role">Business &amp; Marketing Lead &nbsp;·&nbsp; Co-Founder</div>
+            </div>
+            <a href="https://www.linkedin.com/in/mdmu/" target="_blank" rel="noopener" class="tm-li-btn" title="View LinkedIn Profile">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+          </div>
+          <div class="tm-cred">
+            <span class="material-symbols-outlined">trending_up</span>
+            Business Analyst &nbsp;·&nbsp; Marketing Strategist &nbsp;·&nbsp; Finance Lead
+          </div>
+          <div class="tm-bio">
+            Instrumental in business framing, incorporation processes, and financial planning. Shapes eLumino's go-to-market strategy, revenue model, and investor narrative. Leads all marketing activities and business development outreach across target markets.
+          </div>
+          <div class="tm-tags">
+            <span class="tm-tag">Business Analysis</span>
+            <span class="tm-tag">Go-to-Market</span>
+            <span class="tm-tag">Financial Planning</span>
+            <span class="tm-tag">Marketing Strategy</span>
+            <span class="tm-tag">B2B &amp; B2C</span>
+          </div>
+          <div class="tm-footer">
+            <div class="tm-eq"><span class="material-symbols-outlined">pie_chart</span>25% Co-Founder Equity</div>
+            <a href="https://www.linkedin.com/in/mdmu/" target="_blank" rel="noopener" class="tm-li-text">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              View Profile
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Arista Marthyman ── -->
+      <div class="tm-card reveal d4">
+        <div class="tm-banner">
+          <div class="tm-banner-bg tm-banner-bg-a"></div>
+          <div class="tm-photo-wrap">
+            <img class="tm-photo" src="photos/arista.png" alt="Arista Marthyman"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="tm-initials av-a" style="display:none">AM</div>
+          </div>
+        </div>
+        <div class="tm-body">
+          <div class="tm-top">
+            <div>
+              <div class="tm-name">Arista Marthyman</div>
+              <div class="tm-role">Clinical &amp; User Research Lead &nbsp;·&nbsp; Co-Founder</div>
+            </div>
+            <a href="https://www.linkedin.com/in/arista-marthyman/" target="_blank" rel="noopener" class="tm-li-btn" title="View LinkedIn Profile">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+          </div>
+          <div class="tm-cred">
+            <span class="material-symbols-outlined">stethoscope</span>
+            Medical Student &amp; Sociologist &nbsp;·&nbsp; Clinical Relevance &amp; Validation
+          </div>
+          <div class="tm-bio">
+            Bridges eLumino's technical design with real-world clinical and social needs. Leads user validation studies, expert consultations, and privacy law adherence. Also oversees key administrative processes and partnerships with other clinical and academic groups.
+          </div>
+          <div class="tm-tags">
+            <span class="tm-tag">Medicine</span>
+            <span class="tm-tag">Sociology</span>
+            <span class="tm-tag">User Validation</span>
+            <span class="tm-tag">Privacy Law</span>
+            <span class="tm-tag">Clinical Research</span>
+          </div>
+          <div class="tm-footer">
+            <div class="tm-eq"><span class="material-symbols-outlined">pie_chart</span>25% Co-Founder Equity</div>
+            <a href="https://www.linkedin.com/in/arista-marthyman/" target="_blank" rel="noopener" class="tm-li-text">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              View Profile
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /team-grid-v2 -->
+
+    <!-- Stats strip -->
+    <div class="team-strip reveal" style="margin-top:36px">
+      <div class="t-strip-card">
+        <div class="t-strip-icon"><span class="material-symbols-outlined">groups</span></div>
+        <div>
+          <div class="t-strip-label">Team Size</div>
+          <div class="t-strip-val">4 Co-Founders · Equal Partners</div>
+        </div>
+      </div>
+      <div class="t-strip-card">
+        <div class="t-strip-icon"><span class="material-symbols-outlined">handshake</span></div>
+        <div>
+          <div class="t-strip-label">Equity Structure</div>
+          <div class="t-strip-val">25% Each · Joint IP Ownership</div>
+        </div>
+      </div>
+      <div class="t-strip-card">
+        <div class="t-strip-icon"><span class="material-symbols-outlined">emoji_events</span></div>
+        <div>
+          <div class="t-strip-label">Current Status</div>
+          <div class="t-strip-val">Phase 2 · Bounce Health Innovation</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════ CTA ═══════════════ -->
+<section class="section" id="cta" style="background:#fff">
+  <div class="container">
+    <div class="cta-inner reveal">
+      <span class="badge badge-white" style="margin-bottom:22px">Get Involved</span>
+      <div class="cta-title">Ready to Make Care<br>Safer &amp; Smarter?</div>
+      <div class="cta-sub">Join our pilot program, explore partnership opportunities, or reach out about investment and media. We're building from Newfoundland — for the world.</div>
+      <div class="cta-btns">
+        <a href="mailto:hello@elumino.ca" class="btn-wp">
+          <span class="material-symbols-outlined" style="font-size:18px">mail</span>
+          Request a Demo
+        </a>
+        <a href="#team" class="btn-wo">
+          <span class="material-symbols-outlined" style="font-size:18px">people</span>
+          Meet the Team
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer>
+  <div class="container">
+    <div class="foot-top">
+      <div>
+        <div class="foot-brand">eLumino</div>
+        <div class="foot-desc">Privacy-first, camera-free elder care monitoring built on 60&thinsp;GHz radar intelligence. Making aging safer, one home at a time.</div>
+        <div class="foot-badges">
+          <div class="foot-badge"><div class="dot"></div>Phase 2 Active</div>
+          <div class="foot-badge">🇨🇦 St. John's, NL</div>
+          <div class="foot-badge">eLumino.ca</div>
+        </div>
+      </div>
+      <div>
+        <div class="foot-col-title">Product</div>
+        <ul class="foot-links">
+          <li><a href="#solution">Solution</a></li>
+          <li><a href="#how-it-works">How it Works</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#roadmap">Roadmap</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="foot-col-title">Company</div>
+        <ul class="foot-links">
+          <li><a href="#team">Team</a></li>
+          <li><a href="#market">Market</a></li>
+          <li><a href="#cta">Contact</a></li>
+          <li><a href="http://elumino.ca">eLumino.ca</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="foot-col-title">Legal</div>
+        <ul class="foot-links">
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">IP Agreement</a></li>
+          <li><a href="#">NDA</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div style="color:rgba(255,255,255,.3)">© 2026 eLumino. Pre-incorporation collaboration. All rights reserved.</div>
+      <div class="foot-socials">
+        <a href="https://www.linkedin.com/in/sof/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:hello@elumino.ca">hello@elumino.ca</a>
+        <a href="http://elumino.ca">elumino.ca</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════ SCRIPTS ═══════════════ -->
+<script>
+// ── NAV ──
+const nav = document.getElementById('nav');
+const ann = document.getElementById('ann');
+function updateNav() {
+  nav.classList.toggle('scrolled', window.scrollY > 10);
+  const ah = ann ? ann.offsetHeight : 0;
+  nav.style.top = window.scrollY < ah ? Math.max(0, ah - window.scrollY) + 'px' : '0px';
+}
+window.addEventListener('scroll', updateNav, { passive: true });
+updateNav();
+
+// ── MOBILE MENU ──
+const burger = document.getElementById('burger');
+const mob    = document.getElementById('mob');
+document.getElementById('mobClose').onclick = closeMob;
+burger.onclick = () => { mob.classList.add('open'); document.body.style.overflow = 'hidden'; };
+function closeMob() { mob.classList.remove('open'); document.body.style.overflow = ''; }
+
+// ── SMOOTH SCROLL ──
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (!t) return;
+    e.preventDefault();
+    const off = nav.offsetHeight + 12;
+    window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - off, behavior: 'smooth' });
+  });
+});
+
+// ── INTERSECTION OBSERVER (reveals) ──
+const io = new IntersectionObserver(entries => {
+  entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('vis'); io.unobserve(en.target); } });
+}, { threshold: 0.1, rootMargin: '0px 0px -5% 0px' });
+document.querySelectorAll('.reveal,.revl,.revr').forEach(el => io.observe(el));
+
+// ── BAR CHART ANIMATION ──
+const bario = new IntersectionObserver(entries => {
+  entries.forEach(en => {
+    if (en.isIntersecting) {
+      const w = en.target.dataset.w;
+      setTimeout(() => en.target.style.width = w + '%', 200);
+      bario.unobserve(en.target);
+    }
+  });
+}, { threshold: 0.4 });
+document.querySelectorAll('.bar-fill').forEach(el => bario.observe(el));
+
+// ── COUNT-UP ──
+function countUp(el, end, suf, dur) {
+  let start = null;
+  const step = ts => {
+    if (!start) start = ts;
+    const p = Math.min((ts - start) / dur, 1);
+    const ease = 1 - Math.pow(1 - p, 3);
+    el.textContent = Math.floor(ease * end).toLocaleString() + suf;
+    if (p < 1) requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}
+const cio = new IntersectionObserver(entries => {
+  entries.forEach(en => {
+    if (en.isIntersecting) {
+      const el = en.target;
+      countUp(el, parseInt(el.dataset.count), el.dataset.suf || '', 2000);
+      cio.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('[data-count]').forEach(el => cio.observe(el));
+
+// ── RADAR DOT PULSE ──
+const dots = document.querySelectorAll('.r-dot');
+let di = 0;
+setInterval(() => {
+  dots.forEach((d, i) => d.style.opacity = i === di ? '1' : '0.25');
+  di = (di + 1) % dots.length;
+}, 1300);
+</script>
+</body>
+</html>
