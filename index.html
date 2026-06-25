@@ -16,7 +16,7 @@
   --white:#fff;--surf:#f8fcfb;
 }
 html{scroll-behavior:smooth;font-size:16px}
-body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--surf);overflow-x:hidden;line-height:1.6}
+body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--surf);overflow-x:hidden;line-height:1.6;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility}
 h1,h2,h3,h4,h5{font-family:'Manrope',sans-serif;line-height:1.15}
 .material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 300,'GRAD' 0,'opsz' 24}
 img{max-width:100%;display:block}
@@ -24,15 +24,16 @@ img{max-width:100%;display:block}
 /* ── UTILS ── */
 .container{max-width:1180px;margin:0 auto;padding:0 24px}
 .badge{display:inline-flex;align-items:center;gap:6px;padding:6px 16px;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
-.badge-teal{background:rgba(20,184,166,.1);border:1px solid rgba(20,184,166,.28);color:var(--t700)}
+.badge-teal{background:rgba(20,184,166,.09);border:1px solid rgba(20,184,166,.24);color:var(--t600)}
 .badge-white{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);color:rgba(255,255,255,.9)}
-.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:999px;background:linear-gradient(135deg,var(--t600),var(--t800));color:#fff;font-size:14px;font-weight:700;text-decoration:none;border:none;cursor:pointer;transition:all .3s;box-shadow:0 8px 32px rgba(13,148,136,.32);letter-spacing:.01em}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 48px rgba(13,148,136,.44)}
-.btn-outline{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:999px;background:transparent;color:var(--ink);font-size:14px;font-weight:600;text-decoration:none;border:2px solid rgba(10,22,40,.14);cursor:pointer;transition:all .3s}
-.btn-outline:hover{background:rgba(10,22,40,.05);border-color:rgba(10,22,40,.28);transform:translateY(-2px)}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:14px 30px;border-radius:999px;background:linear-gradient(135deg,var(--t500),var(--t800));color:#fff;font-size:14px;font-weight:700;text-decoration:none;border:none;cursor:pointer;transition:all .35s cubic-bezier(.16,1,.3,1);box-shadow:0 2px 6px rgba(13,148,136,.18),0 8px 28px rgba(13,148,136,.28);letter-spacing:.02em}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 4px 10px rgba(13,148,136,.18),0 16px 48px rgba(13,148,136,.38),0 28px 60px rgba(13,148,136,.12)}
+.btn-outline{display:inline-flex;align-items:center;gap:8px;padding:14px 30px;border-radius:999px;background:rgba(255,255,255,.7);color:var(--ink);font-size:14px;font-weight:600;text-decoration:none;border:1.5px solid rgba(10,22,40,.12);cursor:pointer;transition:all .35s cubic-bezier(.16,1,.3,1);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.btn-outline:hover{background:rgba(255,255,255,.92);border-color:rgba(10,22,40,.2);transform:translateY(-3px);box-shadow:0 6px 20px rgba(10,22,40,.08)}
 .section{padding:100px 0}
-.section-label{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--t700)}
-.section-title{font-size:clamp(30px,4vw,52px);font-weight:900;color:var(--ink);letter-spacing:-.025em}
+.section-label{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--t600);display:inline-flex;align-items:center;gap:9px}
+.section-label::before{content:'';display:block;width:22px;height:2px;background:linear-gradient(90deg,var(--t500),var(--t300));border-radius:2px;flex-shrink:0}
+.section-title{font-size:clamp(30px,4vw,52px);font-weight:900;color:var(--ink);letter-spacing:-.03em;line-height:1.1}
 .section-sub{font-size:18px;color:var(--s500);line-height:1.75;max-width:580px}
 
 /* ── ANIMATIONS ── */
@@ -58,15 +59,15 @@ img{max-width:100%;display:block}
 .d4{transition-delay:.32s}.d5{transition-delay:.40s}.d6{transition-delay:.48s}
 
 /* ── ANNOUNCEMENT ── */
-.ann{background:linear-gradient(135deg,var(--t900),var(--t700));color:#fff;text-align:center;padding:10px 24px;font-size:13px;font-weight:600;display:flex;align-items:center;justify-content:center;gap:10px;position:relative;z-index:200}
+.ann{background:linear-gradient(90deg,var(--t950) 0%,var(--t900) 40%,var(--t800) 100%);color:#fff;text-align:center;padding:11px 24px;font-size:13px;font-weight:600;display:flex;align-items:center;justify-content:center;gap:10px;position:relative;z-index:200;letter-spacing:.01em}
 .ann .dot{width:7px;height:7px;background:#4ade80;border-radius:50%;animation:blink 1.8s ease-in-out infinite;flex-shrink:0}
 
 /* ── NAV ── */
 nav{position:fixed;left:0;right:0;z-index:150;transition:all .35s ease}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:16px 32px;max-width:1180px;margin:0 auto}
-nav.scrolled{background:rgba(248,252,251,.93);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);border-bottom:1px solid rgba(20,184,166,.1);box-shadow:0 4px 28px rgba(10,22,40,.06)}
+nav.scrolled{background:rgba(248,252,251,.95);backdrop-filter:blur(28px) saturate(180%);-webkit-backdrop-filter:blur(28px) saturate(180%);border-bottom:1px solid rgba(20,184,166,.12);box-shadow:0 1px 0 rgba(20,184,166,.08),0 4px 24px rgba(10,22,40,.06)}
 .nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
-.nav-logo-icon{width:42px;height:42px;background:linear-gradient(135deg,var(--t600),var(--t900));border-radius:14px;display:flex;align-items:center;justify-content:center;color:#fff;box-shadow:0 4px 16px rgba(13,148,136,.3);flex-shrink:0}
+.nav-logo-icon{width:42px;height:42px;background:linear-gradient(150deg,var(--t500),var(--t900));border-radius:14px;display:flex;align-items:center;justify-content:center;color:#fff;box-shadow:0 2px 6px rgba(13,148,136,.2),0 6px 20px rgba(13,148,136,.25);flex-shrink:0}
 .nav-logo-name{font-family:'Manrope',sans-serif;font-weight:900;font-size:20px;color:var(--ink);letter-spacing:-.02em}
 .nav-logo-sub{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--s400)}
 .nav-links{display:flex;align-items:center;gap:32px;list-style:none}
@@ -83,16 +84,16 @@ nav.scrolled{background:rgba(248,252,251,.93);backdrop-filter:blur(22px);-webkit
 
 /* ── HERO ── */
 .hero{min-height:100vh;display:flex;align-items:center;padding-top:120px;padding-bottom:80px;position:relative;overflow:hidden}
-.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 50% at 18% 42%,rgba(20,184,166,.09) 0%,transparent 60%),radial-gradient(ellipse 55% 40% at 82% 62%,rgba(13,148,136,.07) 0%,transparent 55%),linear-gradient(180deg,#edfaf7 0%,#f8fcfb 55%,#f0f9f8 100%)}
-.hero-grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(20,184,166,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(20,184,166,.04) 1px,transparent 1px);background-size:60px 60px}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 50% at 18% 42%,rgba(20,184,166,.11) 0%,transparent 60%),radial-gradient(ellipse 55% 40% at 82% 62%,rgba(13,148,136,.08) 0%,transparent 55%),radial-gradient(ellipse 60% 40% at 60% 0%,rgba(20,184,166,.06) 0%,transparent 50%),linear-gradient(180deg,#e8faf7 0%,#f6fbfa 45%,#f0f9f7 100%)}
+.hero-grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(20,184,166,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(20,184,166,.05) 1px,transparent 1px);background-size:52px 52px;opacity:.75}
 .hero-orb{position:absolute;border-radius:50%;pointer-events:none}
 .orb1{top:8%;left:-8%;width:480px;height:480px;background:radial-gradient(circle,rgba(20,184,166,.13),transparent 70%);animation:float2 14s ease-in-out infinite}
 .orb2{bottom:4%;right:-4%;width:380px;height:380px;background:radial-gradient(circle,rgba(13,148,136,.1),transparent 70%);animation:float2 17s ease-in-out infinite reverse}
 .hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:60px}
 .hero-text{animation:fadeInLeft .9s cubic-bezier(.16,1,.3,1) .1s both}
-.hero-award{display:inline-flex;align-items:center;gap:8px;padding:7px 16px;border-radius:999px;background:linear-gradient(135deg,rgba(20,184,166,.12),rgba(13,148,136,.07));border:1px solid rgba(20,184,166,.3);margin-bottom:28px;font-size:12px;font-weight:700;color:var(--t700);letter-spacing:.05em}
+.hero-award{display:inline-flex;align-items:center;gap:8px;padding:8px 18px;border-radius:999px;background:linear-gradient(135deg,rgba(20,184,166,.14),rgba(13,148,136,.08));border:1px solid rgba(20,184,166,.28);margin-bottom:28px;font-size:12px;font-weight:700;color:var(--t600);letter-spacing:.05em;box-shadow:0 2px 12px rgba(20,184,166,.12)}
 .hero-title{font-size:clamp(40px,5.5vw,72px);font-weight:900;letter-spacing:-.03em;color:var(--ink);margin-bottom:24px}
-.hero-title .acc{background:linear-gradient(135deg,var(--t600),var(--t400));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-title .acc{background:linear-gradient(135deg,var(--t700) 0%,var(--t500) 50%,var(--t300) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .hero-desc{font-size:18px;color:var(--s500);line-height:1.78;margin-bottom:36px;max-width:510px}
 .hero-actions{display:flex;align-items:center;gap:16px;margin-bottom:52px;flex-wrap:wrap}
 .hero-stats{display:flex;gap:32px;padding-top:32px;border-top:1px solid rgba(20,184,166,.15)}
@@ -113,7 +114,7 @@ nav.scrolled{background:rgba(248,252,251,.93);backdrop-filter:blur(22px);-webkit
 .r-dot{position:absolute;width:8px;height:8px;background:var(--t400);border-radius:50%;box-shadow:0 0 10px rgba(45,212,191,.9)}
 .r-dot1{top:24%;left:62%}.r-dot2{top:56%;left:31%}.r-dot3{top:71%;left:67%}
 .r-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:60px;height:60px;background:linear-gradient(135deg,var(--t600),var(--t900));border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;box-shadow:0 0 0 12px rgba(13,148,136,.1),0 0 0 24px rgba(13,148,136,.05),0 0 40px rgba(13,148,136,.45)}
-.float-card{position:absolute;background:rgba(255,255,255,.93);backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.8);border-radius:18px;padding:14px 18px;box-shadow:0 12px 40px rgba(10,22,40,.09);min-width:150px}
+.float-card{position:absolute;background:rgba(255,255,255,.96);backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);border:1px solid rgba(255,255,255,.88);border-radius:20px;padding:14px 18px;box-shadow:0 2px 8px rgba(10,22,40,.06),0 16px 48px rgba(10,22,40,.1),inset 0 1px 0 rgba(255,255,255,.92);min-width:150px}
 .fc-lbl{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--s400);margin-bottom:5px}
 .fc-val{font-family:'Manrope',sans-serif;font-size:15px;font-weight:800;color:var(--ink);display:flex;align-items:center;gap:6px}
 .sdot{width:8px;height:8px;background:#22c55e;border-radius:50%;animation:blink 2s ease-in-out infinite;flex-shrink:0}
@@ -136,7 +137,7 @@ nav.scrolled{background:rgba(248,252,251,.93);backdrop-filter:blur(22px);-webkit
 .bb:nth-child(12){height:42%;animation:breathe 2.2s ease-in-out 1.32s infinite}
 
 /* ── TICKER ── */
-.ticker{background:rgba(255,255,255,.72);backdrop-filter:blur(12px);border-top:1px solid rgba(20,184,166,.12);border-bottom:1px solid rgba(20,184,166,.12);overflow:hidden;padding:14px 0}
+.ticker{background:rgba(255,255,255,.84);backdrop-filter:blur(16px) saturate(160%);-webkit-backdrop-filter:blur(16px) saturate(160%);border-top:1px solid rgba(20,184,166,.13);border-bottom:1px solid rgba(20,184,166,.13);overflow:hidden;padding:15px 0}
 .ticker-track{display:flex;gap:56px;animation:ticker-scroll 22s linear infinite;white-space:nowrap}
 .ticker-item{display:flex;align-items:center;gap:9px;font-size:13px;font-weight:600;color:var(--s500);flex-shrink:0}
 .ticker-item .material-symbols-outlined{font-size:17px;color:var(--t600)}
@@ -145,18 +146,18 @@ nav.scrolled{background:rgba(248,252,251,.93);backdrop-filter:blur(22px);-webkit
 .dark-sec{background:linear-gradient(180deg,var(--ink) 0%,var(--ink2) 100%);color:#fff;position:relative;overflow:hidden;padding:100px 0}
 .dark-sec::before{content:'';position:absolute;top:-1px;left:0;right:0;height:56px;background:linear-gradient(to bottom,var(--surf),transparent);z-index:2}
 .dark-sec::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:56px;background:linear-gradient(to top,#fff,transparent);z-index:2}
-.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(255,255,255,.05);border-radius:24px;overflow:hidden;margin-top:60px}
-.stat-card{background:rgba(255,255,255,.04);padding:44px 36px;text-align:center;transition:background .3s}
-.stat-card:hover{background:rgba(20,184,166,.08)}
-.sc-num{font-family:'Manrope',sans-serif;font-size:52px;font-weight:900;letter-spacing:-.04em;line-height:1;background:linear-gradient(135deg,#fff,rgba(255,255,255,.65));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.07);border-radius:28px;overflow:hidden;margin-top:60px;box-shadow:0 0 0 1px rgba(255,255,255,.07)}
+.stat-card{background:rgba(255,255,255,.04);padding:48px 36px;text-align:center;transition:all .35s cubic-bezier(.16,1,.3,1)}
+.stat-card:hover{background:rgba(20,184,166,.09);cursor:default}
+.sc-num{font-family:'Manrope',sans-serif;font-size:56px;font-weight:900;letter-spacing:-.04em;line-height:1;background:linear-gradient(160deg,#fff 30%,rgba(45,212,191,.88));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .sc-lbl{font-size:14px;color:rgba(255,255,255,.5);margin-top:8px;font-weight:500;line-height:1.5}
 .sc-src{display:inline-block;margin-top:10px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--t400)}
 
 /* ── SOLUTION ── */
 .sol-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
 .feat-list{margin-top:28px;display:flex;flex-direction:column;gap:14px}
-.feat-item{display:flex;align-items:flex-start;gap:14px;padding:18px;border-radius:16px;background:#fff;border:1px solid rgba(20,184,166,.1);transition:all .3s;box-shadow:0 2px 12px rgba(10,22,40,.04);cursor:default}
-.feat-item:hover{border-color:rgba(20,184,166,.3);box-shadow:0 8px 28px rgba(20,184,166,.1);transform:translateX(4px)}
+.feat-item{display:flex;align-items:flex-start;gap:14px;padding:18px;border-radius:16px;background:#fff;border:1px solid rgba(20,184,166,.1);transition:all .35s cubic-bezier(.16,1,.3,1);box-shadow:0 1px 4px rgba(10,22,40,.04),0 4px 14px rgba(10,22,40,.05);cursor:default}
+.feat-item:hover{border-color:rgba(20,184,166,.35);box-shadow:0 4px 12px rgba(20,184,166,.08),0 12px 32px rgba(20,184,166,.1);transform:translateX(6px)}
 .fi-icon{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,rgba(20,184,166,.12),rgba(13,148,136,.07));display:flex;align-items:center;justify-content:center;color:var(--t700);flex-shrink:0}
 .fi-icon .material-symbols-outlined{font-size:22px}
 .fi-h4{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:3px}
@@ -176,16 +177,16 @@ nav.scrolled{background:rgba(248,252,251,.93);backdrop-filter:blur(22px);-webkit
 .led-g{background:#22c55e;box-shadow:0 0 8px #22c55e;animation:blink 2.6s ease-in-out infinite}
 .led-t{background:var(--t400);box-shadow:0 0 8px var(--t400);animation:blink 3.1s ease-in-out infinite .5s}
 .dev-specs{display:flex;flex-direction:column;gap:10px;margin-top:28px}
-.dev-spec{display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;background:#fff;border:1px solid rgba(20,184,166,.12);font-size:12px;font-weight:700;color:var(--ink);box-shadow:0 2px 10px rgba(10,22,40,.05)}
+.dev-spec{display:flex;align-items:center;gap:8px;padding:11px 15px;border-radius:12px;background:#fff;border:1px solid rgba(20,184,166,.14);font-size:12px;font-weight:600;color:var(--ink);box-shadow:0 1px 4px rgba(10,22,40,.04),0 4px 12px rgba(10,22,40,.05)}
 .dev-spec .material-symbols-outlined{font-size:16px;color:var(--t600)}
 
 /* ── HOW IT WORKS ── */
 .how-sec{background:#fff}
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;margin-top:60px;position:relative}
-.steps::before{content:'';position:absolute;top:41px;left:12%;right:12%;height:1px;background:linear-gradient(90deg,transparent,var(--t200),transparent)}
+.steps::before{content:'';position:absolute;top:41px;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent 0%,var(--t300) 30%,var(--t200) 70%,transparent 100%)}
 .step{text-align:center;position:relative}
 .step-icon{width:82px;height:82px;margin:0 auto 22px;border-radius:24px;background:linear-gradient(135deg,var(--t50),rgba(20,184,166,.06));border:2px solid rgba(20,184,166,.2);display:flex;align-items:center;justify-content:center;position:relative;transition:all .4s}
-.step:hover .step-icon{background:linear-gradient(135deg,var(--t600),var(--t800));border-color:transparent;box-shadow:0 16px 40px rgba(13,148,136,.28);transform:translateY(-4px)}
+.step:hover .step-icon{background:linear-gradient(135deg,var(--t500),var(--t800));border-color:transparent;box-shadow:0 4px 12px rgba(13,148,136,.2),0 16px 40px rgba(13,148,136,.28);transform:translateY(-6px)}
 .step-icon .material-symbols-outlined{font-size:30px;color:var(--t700);transition:color .4s}
 .step:hover .step-icon .material-symbols-outlined{color:#fff}
 .step-badge{position:absolute;top:-8px;right:-8px;width:22px;height:22px;background:var(--t600);color:#fff;border-radius:50%;font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center;border:2px solid #fff}
@@ -194,12 +195,12 @@ nav.scrolled{background:rgba(248,252,251,.93);backdrop-filter:blur(22px);-webkit
 
 /* ── FEATURES ── */
 .feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:60px}
-.feat-card{background:#fff;border:1px solid rgba(20,184,166,.1);border-radius:24px;padding:32px;transition:all .4s cubic-bezier(.16,1,.3,1);position:relative;overflow:hidden;box-shadow:0 4px 20px rgba(10,22,40,.04)}
-.feat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--t600),var(--t400));opacity:0;transition:opacity .3s}
-.feat-card:hover{transform:translateY(-8px);box-shadow:0 24px 60px rgba(13,148,136,.12);border-color:rgba(20,184,166,.25)}
+.feat-card{background:#fff;border:1px solid rgba(20,184,166,.1);border-radius:24px;padding:32px;transition:all .4s cubic-bezier(.16,1,.3,1);position:relative;overflow:hidden;box-shadow:0 1px 3px rgba(10,22,40,.04),0 4px 16px rgba(10,22,40,.05),0 12px 32px rgba(10,22,40,.03)}
+.feat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--t700),var(--t500),var(--t300));opacity:0;transition:opacity .35s}
+.feat-card:hover{transform:translateY(-10px);box-shadow:0 4px 12px rgba(13,148,136,.07),0 20px 56px rgba(13,148,136,.14),0 36px 72px rgba(10,22,40,.06);border-color:rgba(20,184,166,.3)}
 .feat-card:hover::before{opacity:1}
 .fc-icon{width:54px;height:54px;border-radius:18px;background:linear-gradient(135deg,rgba(20,184,166,.12),rgba(13,148,136,.06));display:flex;align-items:center;justify-content:center;margin-bottom:18px;transition:all .4s}
-.feat-card:hover .fc-icon{background:linear-gradient(135deg,var(--t600),var(--t800));box-shadow:0 8px 24px rgba(13,148,136,.28)}
+.feat-card:hover .fc-icon{background:linear-gradient(135deg,var(--t500),var(--t800));box-shadow:0 4px 12px rgba(13,148,136,.2),0 12px 32px rgba(13,148,136,.25)}
 .feat-card:hover .fc-icon .material-symbols-outlined{color:#fff}
 .fc-icon .material-symbols-outlined{font-size:26px;color:var(--t700);transition:color .4s}
 .fc-title{font-family:'Manrope',sans-serif;font-size:20px;font-weight:800;color:var(--ink);margin-bottom:9px}
@@ -210,11 +211,11 @@ nav.scrolled{background:rgba(248,252,251,.93);backdrop-filter:blur(22px);-webkit
 .bar-row{display:flex;align-items:center;gap:14px;margin-bottom:14px}
 .bar-lbl{font-size:13px;font-weight:600;color:var(--s500);width:168px;flex-shrink:0}
 .bar-track{flex:1;height:10px;background:rgba(20,184,166,.1);border-radius:999px;overflow:hidden}
-.bar-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--t700),var(--t400));width:0%;transition:width 1.6s cubic-bezier(.16,1,.3,1)}
+.bar-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--t800),var(--t600),var(--t300));width:0%;transition:width 1.6s cubic-bezier(.16,1,.3,1)}
 .bar-pct{font-size:13px;font-weight:700;color:var(--t700);width:44px;text-align:right}
 .mkt-callouts{display:flex;flex-direction:column;gap:18px}
-.mkt-callout{background:#fff;border-radius:18px;padding:22px;border:1px solid rgba(20,184,166,.1);box-shadow:0 4px 18px rgba(10,22,40,.04);display:flex;gap:14px;align-items:flex-start;transition:all .3s}
-.mkt-callout:hover{border-color:rgba(20,184,166,.25);box-shadow:0 12px 36px rgba(13,148,136,.09);transform:translateX(4px)}
+.mkt-callout{background:#fff;border-radius:18px;padding:22px;border:1px solid rgba(20,184,166,.1);box-shadow:0 1px 4px rgba(10,22,40,.04),0 4px 16px rgba(10,22,40,.05);display:flex;gap:14px;align-items:flex-start;transition:all .35s cubic-bezier(.16,1,.3,1)}
+.mkt-callout:hover{border-color:rgba(20,184,166,.3);box-shadow:0 4px 12px rgba(13,148,136,.07),0 16px 40px rgba(13,148,136,.1);transform:translateX(6px)}
 .mc-icon{width:46px;height:46px;border-radius:14px;background:linear-gradient(135deg,rgba(20,184,166,.1),rgba(13,148,136,.06));display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--t700)}
 .mc-icon .material-symbols-outlined{font-size:22px}
 .mc-title{font-weight:700;font-size:15px;color:var(--ink);margin-bottom:4px}
@@ -222,12 +223,12 @@ nav.scrolled{background:rgba(248,252,251,.93);backdrop-filter:blur(22px);-webkit
 
 /* ── ROADMAP ── */
 .road-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:60px;position:relative}
-.road-grid::before{content:'';position:absolute;top:27px;left:18%;right:18%;height:2px;background:linear-gradient(90deg,var(--t700),var(--t300))}
-.road-card{position:relative;z-index:1;background:#fff;border:1px solid rgba(20,184,166,.14);border-radius:24px;padding:32px;text-align:center;box-shadow:0 4px 18px rgba(10,22,40,.04);transition:all .4s}
-.road-card.active{border-color:var(--t600);box-shadow:0 12px 40px rgba(13,148,136,.14)}
-.road-card:hover{transform:translateY(-6px);box-shadow:0 24px 60px rgba(13,148,136,.12)}
+.road-grid::before{content:'';position:absolute;top:27px;left:16%;right:16%;height:2px;background:linear-gradient(90deg,var(--t700),var(--t500) 50%,var(--t200));border-radius:2px}
+.road-card{position:relative;z-index:1;background:#fff;border:1px solid rgba(20,184,166,.14);border-radius:24px;padding:32px;text-align:center;box-shadow:0 1px 3px rgba(10,22,40,.04),0 4px 16px rgba(10,22,40,.05),0 12px 28px rgba(10,22,40,.03);transition:all .4s}
+.road-card.active{border-color:var(--t600);box-shadow:0 2px 8px rgba(13,148,136,.1),0 12px 40px rgba(13,148,136,.16),0 24px 56px rgba(10,22,40,.06)}
+.road-card:hover{transform:translateY(-8px);box-shadow:0 4px 12px rgba(13,148,136,.07),0 20px 56px rgba(13,148,136,.13),0 36px 72px rgba(10,22,40,.05)}
 .road-icon{width:54px;height:54px;margin:0 auto 18px;border-radius:50%;display:flex;align-items:center;justify-content:center}
-.ri-active{background:linear-gradient(135deg,var(--t600),var(--t800));box-shadow:0 8px 24px rgba(13,148,136,.38);color:#fff}
+.ri-active{background:linear-gradient(135deg,var(--t500),var(--t800));box-shadow:0 4px 12px rgba(13,148,136,.24),0 12px 32px rgba(13,148,136,.32);color:#fff}
 .ri-next{background:rgba(20,184,166,.08);color:var(--t600)}
 .ri-future{background:rgba(100,116,139,.08);color:var(--s400)}
 .road-phase{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:9px}
@@ -242,17 +243,17 @@ nav.scrolled{background:rgba(248,252,251,.93);backdrop-filter:blur(22px);-webkit
 .av-a{background:linear-gradient(135deg,#be123c,#f43f5e)}
 .team-grid-v2{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;margin-top:68px}
 /* Card shell */
-.tm-card{background:#fff;border:1px solid rgba(20,184,166,.1);border-radius:28px;overflow:hidden;box-shadow:0 6px 32px rgba(10,22,40,.06);transition:all .45s cubic-bezier(.16,1,.3,1);display:flex;flex-direction:column}
-.tm-card:hover{transform:translateY(-8px);box-shadow:0 36px 88px rgba(13,148,136,.14);border-color:rgba(20,184,166,.28)}
+.tm-card{background:#fff;border:1px solid rgba(20,184,166,.1);border-radius:28px;overflow:hidden;box-shadow:0 2px 6px rgba(10,22,40,.04),0 6px 24px rgba(10,22,40,.06),0 16px 48px rgba(10,22,40,.04);transition:all .45s cubic-bezier(.16,1,.3,1);display:flex;flex-direction:column}
+.tm-card:hover{transform:translateY(-10px);box-shadow:0 4px 12px rgba(13,148,136,.07),0 20px 60px rgba(13,148,136,.13),0 40px 80px rgba(10,22,40,.06);border-color:rgba(20,184,166,.3)}
 /* Banner + photo */
 .tm-banner{position:relative;height:84px;overflow:visible;flex-shrink:0}
 .tm-banner-bg{position:absolute;inset:0}
-.tm-banner-bg::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 75% 50%,rgba(45,212,191,.22),transparent 65%)}
+.tm-banner-bg::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 75% 50%,rgba(45,212,191,.28),transparent 60%),radial-gradient(circle at 25% 80%,rgba(255,255,255,.07),transparent 50%)}
 .tm-banner-bg-s{background:linear-gradient(135deg,#042f2e 0%,#0f766e 100%)}
 .tm-banner-bg-f{background:linear-gradient(135deg,#0c1445 0%,#1e40af 100%)}
 .tm-banner-bg-m{background:linear-gradient(135deg,#2e1065 0%,#7c3aed 100%)}
 .tm-banner-bg-a{background:linear-gradient(135deg,#4c0519 0%,#be123c 100%)}
-.tm-photo-wrap{position:absolute;bottom:-42px;left:32px;width:86px;height:86px;border-radius:50%;border:4px solid #fff;box-shadow:0 8px 28px rgba(10,22,40,.18);overflow:hidden;background:#fff;flex-shrink:0}
+.tm-photo-wrap{position:absolute;bottom:-42px;left:32px;width:86px;height:86px;border-radius:50%;border:4px solid #fff;box-shadow:0 2px 8px rgba(10,22,40,.1),0 8px 28px rgba(10,22,40,.16);overflow:hidden;background:#fff;flex-shrink:0}
 .tm-photo{width:100%;height:100%;object-fit:cover;object-position:top center;border-radius:50%;display:block}
 .tm-initials{width:100%;height:100%;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-size:30px;font-weight:900;color:#fff}
 /* Card body */
@@ -274,7 +275,8 @@ nav.scrolled{background:rgba(248,252,251,.93);backdrop-filter:blur(22px);-webkit
 .tm-li-text:hover{background:var(--t600);color:#fff;border-color:var(--t600)}
 /* Team bottom strip */
 .team-strip{margin-top:40px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.t-strip-card{background:#fff;border:1px solid rgba(20,184,166,.1);border-radius:18px;padding:20px 22px;display:flex;align-items:center;gap:14px;box-shadow:0 3px 14px rgba(10,22,40,.04)}
+.t-strip-card{background:#fff;border:1px solid rgba(20,184,166,.12);border-radius:18px;padding:20px 22px;display:flex;align-items:center;gap:14px;box-shadow:0 1px 4px rgba(10,22,40,.04),0 4px 16px rgba(10,22,40,.05);transition:all .3s}
+.t-strip-card:hover{border-color:rgba(20,184,166,.25);box-shadow:0 4px 12px rgba(13,148,136,.07),0 12px 32px rgba(13,148,136,.09);transform:translateY(-3px)}
 .t-strip-icon{width:44px;height:44px;border-radius:13px;background:linear-gradient(135deg,rgba(20,184,166,.1),rgba(13,148,136,.06));display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--t700)}
 .t-strip-icon .material-symbols-outlined{font-size:22px}
 .t-strip-label{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--s400);margin-bottom:3px}
@@ -284,19 +286,19 @@ nav.scrolled{background:rgba(248,252,251,.93);backdrop-filter:blur(22px);-webkit
 .team-note-inner .material-symbols-outlined{color:var(--t600);font-size:18px}
 
 /* ── CTA ── */
-.cta-inner{background:linear-gradient(135deg,var(--ink),var(--ink2) 50%,var(--t950));border-radius:40px;padding:80px;text-align:center;position:relative;overflow:hidden}
-.cta-inner::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:560px;height:560px;background:radial-gradient(circle,rgba(20,184,166,.16),transparent 60%)}
+.cta-inner{background:linear-gradient(150deg,var(--ink) 0%,var(--ink2) 45%,#0a2a28 75%,var(--t950) 100%);border-radius:40px;padding:84px;text-align:center;position:relative;overflow:hidden}
+.cta-inner::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:640px;height:640px;background:radial-gradient(circle,rgba(20,184,166,.2) 0%,rgba(13,148,136,.07) 40%,transparent 65%)}
 .cta-inner::after{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);background-size:44px 44px}
 .cta-title{font-family:'Manrope',sans-serif;font-size:clamp(34px,4vw,56px);font-weight:900;color:#fff;letter-spacing:-.03em;line-height:1.1;margin-bottom:14px;position:relative;z-index:1}
 .cta-sub{font-size:18px;color:rgba(255,255,255,.58);margin-bottom:38px;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.65;position:relative;z-index:1}
 .cta-btns{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;position:relative;z-index:1}
-.btn-wp{display:inline-flex;align-items:center;gap:8px;padding:16px 36px;border-radius:999px;background:#fff;color:var(--t800);font-size:15px;font-weight:800;text-decoration:none;transition:all .3s;box-shadow:0 8px 28px rgba(0,0,0,.18)}
-.btn-wp:hover{transform:translateY(-3px);box-shadow:0 16px 48px rgba(0,0,0,.26)}
-.btn-wo{display:inline-flex;align-items:center;gap:8px;padding:16px 36px;border-radius:999px;background:rgba(255,255,255,.08);color:rgba(255,255,255,.9);font-size:15px;font-weight:700;text-decoration:none;border:1px solid rgba(255,255,255,.2);transition:all .3s}
-.btn-wo:hover{background:rgba(255,255,255,.14);transform:translateY(-3px)}
+.btn-wp{display:inline-flex;align-items:center;gap:8px;padding:16px 38px;border-radius:999px;background:#fff;color:var(--t800);font-size:15px;font-weight:800;text-decoration:none;transition:all .35s cubic-bezier(.16,1,.3,1);box-shadow:0 2px 8px rgba(0,0,0,.1),0 8px 32px rgba(0,0,0,.16),inset 0 1px 0 rgba(255,255,255,.5);letter-spacing:.01em}
+.btn-wp:hover{transform:translateY(-4px);box-shadow:0 4px 16px rgba(0,0,0,.12),0 16px 48px rgba(0,0,0,.22)}
+.btn-wo{display:inline-flex;align-items:center;gap:8px;padding:16px 38px;border-radius:999px;background:rgba(255,255,255,.08);color:rgba(255,255,255,.92);font-size:15px;font-weight:700;text-decoration:none;border:1px solid rgba(255,255,255,.22);transition:all .35s cubic-bezier(.16,1,.3,1);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.btn-wo:hover{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.32);transform:translateY(-3px)}
 
 /* ── FOOTER ── */
-footer{background:var(--ink);color:rgba(255,255,255,.65);padding:60px 0 28px}
+footer{background:linear-gradient(180deg,var(--ink) 0%,#080f1c 100%);color:rgba(255,255,255,.65);padding:64px 0 32px}
 .foot-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:44px;border-bottom:1px solid rgba(255,255,255,.08)}
 .foot-brand{font-family:'Manrope',sans-serif;font-size:22px;font-weight:900;color:#fff;letter-spacing:-.02em;margin-bottom:10px}
 .foot-desc{font-size:13.5px;line-height:1.7;max-width:270px}
@@ -421,7 +423,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.65);padding:60px 0 28px}
         </h1>
 
         <p class="hero-desc">
-          eLumino uses 60&thinsp;GHz radar&thinsp;+&thinsp;infrared fusion to detect falls, monitor breathing, and track motion — with zero cameras, zero wearables, and complete privacy.
+          eLumino uses advanced radar and infrared sensing to continuously monitor falls, breathing, and daily patterns — with zero cameras, zero wearables, and complete privacy. Dignified, intelligent care for the people who matter most.
         </p>
 
         <div class="hero-actions">
@@ -527,7 +529,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.65);padding:60px 0 28px}
       <span class="badge badge-white" style="margin-bottom:20px">The Problem</span>
       <h2 class="section-title" style="color:#fff;margin:0 auto 16px;max-width:640px">Canada's Aging Crisis<br>Needs Better Solutions</h2>
       <p class="section-sub" style="color:rgba(255,255,255,.5);margin:0 auto;text-align:center">
-        Dementia care is reactive, fragmented, and crisis-driven — leaving patients, caregivers, and health systems responding too late, too little.
+        Dementia and elder care is reactive, fragmented, and crisis-driven — leaving patients vulnerable, caregivers burned out, and health systems responding too late to prevent the worst outcomes.
       </p>
     </div>
 
@@ -560,28 +562,28 @@ footer{background:var(--ink);color:rgba(255,255,255,.65);padding:60px 0 28px}
         <span class="section-label">Our Solution</span>
         <h2 class="section-title" style="margin:14px 0 18px">Invisible Technology.<br>Visible Peace of Mind.</h2>
         <p class="section-sub">
-          eLumino is a wall-mounted, camera-free monitoring device that uses 60&thinsp;GHz radar and infrared thermal sensing to protect elderly loved ones — without invading their privacy.
+          eLumino is a wall-mounted, camera-free monitoring device that uses advanced radar and infrared thermal sensing to protect elderly loved ones — without ever invading their privacy or dignity.
         </p>
         <div class="feat-list">
           <div class="feat-item">
             <div class="fi-icon"><span class="material-symbols-outlined">visibility_off</span></div>
             <div>
               <div class="fi-h4">Completely Camera-Free</div>
-              <div class="fi-p">No video. No images. Radar waves detect motion, position, and vital signs with zero visual data ever captured.</div>
+              <div class="fi-p">No video. No images. Our sensing technology detects motion, position, and vital signs with zero visual data ever captured or stored.</div>
             </div>
           </div>
           <div class="feat-item">
             <div class="fi-icon"><span class="material-symbols-outlined">contactless</span></div>
             <div>
               <div class="fi-h4">No Wearables Required</div>
-              <div class="fi-p">No smartwatches or pendants to wear. eLumino operates passively in the background, around the clock.</div>
+              <div class="fi-p">No smartwatches, pendants, or patches to wear. eLumino operates passively in the background — day and night, with no action required from the resident.</div>
             </div>
           </div>
           <div class="feat-item">
             <div class="fi-icon"><span class="material-symbols-outlined">psychology</span></div>
             <div>
               <div class="fi-h4">AI-Powered Confidence</div>
-              <div class="fi-p">Radar + infrared fusion on an edge processor classifies events in milliseconds, slashing false alarm rates.</div>
+              <div class="fi-p">Multi-sensor fusion on an edge processor classifies events in milliseconds — dramatically reducing false alarms so caregivers can trust every notification they receive.</div>
             </div>
           </div>
         </div>
@@ -622,7 +624,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.65);padding:60px 0 28px}
     <div class="reveal" style="text-align:center">
       <span class="section-label">How it Works</span>
       <h2 class="section-title" style="margin:14px auto 14px;max-width:480px">Four Steps to Safer Care</h2>
-      <p class="section-sub" style="margin:0 auto;text-align:center">A quiet chain of sensing, fusion, AI detection, and tiered alerts — invisible to residents, essential for caregivers.</p>
+      <p class="section-sub" style="margin:0 auto;text-align:center">A quiet, continuous chain of sensing, data fusion, AI detection, and tiered alerts — completely invisible to residents, yet essential for the caregivers who depend on it.</p>
     </div>
     <div class="steps">
       <div class="step reveal d1">
@@ -631,7 +633,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.65);padding:60px 0 28px}
           <div class="step-badge">1</div>
         </div>
         <div class="step-title">Sense</div>
-        <div class="step-desc">60&thinsp;GHz millimeter-wave radar silently sweeps the room, capturing precise motion, position, and micro-vibrations without light.</div>
+        <div class="step-desc">Advanced millimeter-wave radar silently sweeps the room, capturing precise motion, position, and micro-vibrations — day or night, without requiring any light.</div>
       </div>
       <div class="step reveal d2">
         <div class="step-icon">
@@ -639,7 +641,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.65);padding:60px 0 28px}
           <div class="step-badge">2</div>
         </div>
         <div class="step-title">Fuse</div>
-        <div class="step-desc">Radar data fuses with IR thermal sensing on the edge processor — two modalities combined for higher confidence and fewer false alarms.</div>
+        <div class="step-desc">Radar data fuses with infrared thermal sensing on the edge processor — two independent modalities combined for significantly higher detection confidence and far fewer false alarms.</div>
       </div>
       <div class="step reveal d3">
         <div class="step-icon">
@@ -647,7 +649,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.65);padding:60px 0 28px}
           <div class="step-badge">3</div>
         </div>
         <div class="step-title">Detect</div>
-        <div class="step-desc">Embedded AI classifies falls, bed exits, abnormal breathing, and long inactivity in milliseconds using temporal pattern analysis.</div>
+        <div class="step-desc">Embedded AI classifies falls, bed exits, abnormal breathing, and extended inactivity in milliseconds — learning from patterns over time to become more accurate with each passing day.</div>
       </div>
       <div class="step reveal d4">
         <div class="step-icon">
@@ -655,7 +657,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.65);padding:60px 0 28px}
           <div class="step-badge">4</div>
         </div>
         <div class="step-title">Alert</div>
-        <div class="step-desc">Caregivers receive instant, tiered notifications through the eLumino mobile app — with enough context to respond confidently.</div>
+        <div class="step-desc">Caregivers receive instant, prioritized notifications through the eLumino app — with enough situational context to respond calmly and confidently, without the anxiety of ambiguity.</div>
       </div>
     </div>
   </div>
@@ -667,38 +669,38 @@ footer{background:var(--ink);color:rgba(255,255,255,.65);padding:60px 0 28px}
     <div class="reveal" style="text-align:center">
       <span class="section-label">Features</span>
       <h2 class="section-title" style="margin:14px auto 14px">Complete Peace of Mind</h2>
-      <p class="section-sub" style="margin:0 auto;text-align:center">Clinical reliability in home settings — without making any room feel clinical.</p>
+      <p class="section-sub" style="margin:0 auto;text-align:center">Clinical-grade reliability in home and care settings — without making any room feel clinical or intrusive.</p>
     </div>
     <div class="feat-grid">
       <div class="feat-card reveal d1">
         <div class="fc-icon"><span class="material-symbols-outlined">falling</span></div>
         <div class="fc-title">Fall Detection</div>
-        <div class="fc-desc">Precise vertical tracking detects rapid elevation changes even in complete darkness. Multi-stage temporal filtering eliminates false positives before alerting caregivers.</div>
+        <div class="fc-desc">Continuous positional sensing detects rapid elevation changes even in complete darkness. Multi-stage event filtering eliminates false positives so caregivers receive only meaningful, actionable alerts.</div>
       </div>
       <div class="feat-card reveal d2">
         <div class="fc-icon"><span class="material-symbols-outlined">bed</span></div>
         <div class="fc-title">Bed-Exit Alerts</div>
-        <div class="fc-desc">Monitors bed-transition timing patterns to prevent night-time wandering and fall risk. Configurable sensitivity thresholds per resident and per time-of-day.</div>
+        <div class="fc-desc">Monitors bed-transition patterns to detect night-time wandering risk before it becomes dangerous. Sensitivity and timing thresholds are fully configurable per resident — and per time of day.</div>
       </div>
       <div class="feat-card reveal d3">
         <div class="fc-icon"><span class="material-symbols-outlined">air</span></div>
         <div class="fc-title">Breathing Monitoring</div>
-        <div class="fc-desc">Sub-millimeter radar detection of chest-wall micro-movements provides continuous respiratory rate tracking with anomaly alerts for apnea or distress.</div>
+        <div class="fc-desc">Continuous detection of chest micro-movements provides real-time respiratory rate tracking, with automatic anomaly alerts for irregular breathing patterns or potential distress — even during sleep.</div>
       </div>
       <div class="feat-card reveal d4">
         <div class="fc-icon"><span class="material-symbols-outlined">thermostat</span></div>
         <div class="fc-title">Infrared Thermal Fusion</div>
-        <div class="fc-desc">Thermal array adds a secondary sensor layer, verifying human presence and enhancing confidence on every radar-based detection event.</div>
+        <div class="fc-desc">A thermal sensor layer independently verifies human presence, adding a second layer of confirmation to every detection event — so alerts are grounded in converging evidence, not a single data source.</div>
       </div>
       <div class="feat-card reveal d5">
         <div class="fc-icon"><span class="material-symbols-outlined">encrypted</span></div>
         <div class="fc-title">Secure Connectivity</div>
-        <div class="fc-desc">End-to-end encrypted transmission via local WiFi or 4G LTE backup. On-device edge processing means sensitive data never leaves the home unnecessarily.</div>
+        <div class="fc-desc">All data is transmitted with end-to-end encryption over WiFi, with automatic 4G LTE failover. On-device edge processing ensures sensitive health data is processed locally first — minimizing what leaves the home.</div>
       </div>
       <div class="feat-card reveal d6">
         <div class="fc-icon"><span class="material-symbols-outlined">dashboard_customize</span></div>
         <div class="fc-title">Dashboard &amp; Alerts</div>
-        <div class="fc-desc">A unified caregiver app with real-time room status, health trend charts, and tiered notifications for families and professional care teams.</div>
+        <div class="fc-desc">A unified caregiver dashboard with live room status, trend charts, and tiered notification routing — designed for both family members and professional care teams to stay informed without feeling overwhelmed.</div>
       </div>
     </div>
   </div>
@@ -761,7 +763,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.65);padding:60px 0 28px}
     <div class="reveal" style="text-align:center">
       <span class="section-label">Roadmap</span>
       <h2 class="section-title" style="margin:14px auto 14px">Where We're Headed</h2>
-      <p class="section-sub" style="margin:0 auto;text-align:center">Our journey toward comprehensive AI-powered care intelligence for every aging home.</p>
+      <p class="section-sub" style="margin:0 auto;text-align:center">Our path from proven prototype to a comprehensive AI-powered care intelligence platform — reaching every aging home in Canada.</p>
     </div>
     <div class="road-grid">
       <div class="road-card active reveal d1">
@@ -792,7 +794,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.65);padding:60px 0 28px}
     <div class="reveal" style="text-align:center">
       <span class="section-label">The Team</span>
       <h2 class="section-title" style="margin:14px auto 14px">Built by People Who Care</h2>
-      <p class="section-sub" style="margin:0 auto;text-align:center">A multidisciplinary team of engineers, health scientists, clinicians, and business strategists — united by a mission to make aging safer and more dignified.</p>
+      <p class="section-sub" style="margin:0 auto;text-align:center">A multidisciplinary team of engineers, health scientists, clinicians, and business strategists — united by a shared mission to make aging safer, more dignified, and less isolating.</p>
     </div>
 
     <!-- ── 2×2 Professional Cards ── -->
@@ -1010,7 +1012,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.65);padding:60px 0 28px}
     <div class="cta-inner reveal">
       <span class="badge badge-white" style="margin-bottom:22px">Get Involved</span>
       <div class="cta-title">Ready to Make Care<br>Safer &amp; Smarter?</div>
-      <div class="cta-sub">Join our pilot program, explore partnership opportunities, or reach out about investment and media. We're building from Newfoundland — for the world.</div>
+      <div class="cta-sub">Join our pilot program in Newfoundland, explore a strategic partnership, or connect with us about investment and press. We're building from St. John's — for every aging home in Canada and beyond.</div>
       <div class="cta-btns">
         <a href="mailto:hello@elumino.ca" class="btn-wp">
           <span class="material-symbols-outlined" style="font-size:18px">mail</span>
@@ -1031,7 +1033,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.65);padding:60px 0 28px}
     <div class="foot-top">
       <div>
         <div class="foot-brand">eLumino</div>
-        <div class="foot-desc">Privacy-first, camera-free elder care monitoring built on 60&thinsp;GHz radar intelligence. Making aging safer, one home at a time.</div>
+        <div class="foot-desc">Privacy-first, camera-free elder care monitoring powered by advanced radar and infrared sensing intelligence. Making aging safer and more dignified — one home at a time.</div>
         <div class="foot-badges">
           <div class="foot-badge"><div class="dot"></div>Phase 2 Active</div>
           <div class="foot-badge">🇨🇦 St. John's, NL</div>
@@ -1067,7 +1069,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.65);padding:60px 0 28px}
       </div>
     </div>
     <div class="foot-bottom">
-      <div style="color:rgba(255,255,255,.3)">© 2026 eLumino. Pre-incorporation collaboration. All rights reserved.</div>
+      <div style="color:rgba(255,255,255,.3)">© 2026 eLumino. Pre-incorporation collaboration. All intellectual property is owned jointly by the founding team. All rights reserved. Unauthorized use or disclosure is prohibited.</div>
       <div class="foot-socials">
         <a href="https://www.linkedin.com/in/sof/" target="_blank" rel="noopener">LinkedIn</a>
         <a href="mailto:hello@elumino.ca">hello@elumino.ca</a>
